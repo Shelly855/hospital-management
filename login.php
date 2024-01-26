@@ -17,9 +17,6 @@ class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
   <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
@@ -36,10 +33,11 @@ class="close" title="Close Modal">&times;</span>
 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>
+
+<!-- reference: https://www.w3schools.com/howto/howto_css_login_form.asp -->
     
 </body>
 </html>

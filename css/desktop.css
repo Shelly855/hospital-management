@@ -1,12 +1,44 @@
+body {
+  background-color: lightblue;
+}
+
+header{
+  background-color:white;
+  border-radius:10px;
+  display:flex;
+  padding: 10px;
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  border-right:1px solid lightblue;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 10px 12px;
+  text-decoration: none;
+}
+
 h1{
   font-size: 50px;
-  color:purple;
+  color:darkblue;
   text-align: center;
+
 }
 
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -16,7 +48,7 @@ input[type=text], input[type=password] {
   button {
     background-color: #6495ed;
     color: white;
-    padding: 14px 20px;
+    padding: 14px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
@@ -42,27 +74,24 @@ input[type=text], input[type=password] {
     padding-top: 16px;
   }
   
-  /* The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+  .form {
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
     padding-top: 60px;
   }
-  
-  /* Modal Content/Box */
-  .modal-content {
+
+  .form-content {
     background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin: 5% auto 15% auto;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
   }
   
   .close {

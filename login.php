@@ -12,10 +12,9 @@
 
 <button onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
 
-<!-- The Modal (contains the Sign Up form) -->
-<div id="id02" class="modal">
-  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/homepage.php">
+<div id="id02" class="form">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Form">&times;</span>
+  <form class="form-content" action="/homepage.php">
     <div class="container">
       <h1>Sign Up</h1>
       <label for="email"><b>Email</b></label>
@@ -39,13 +38,11 @@
 </div>
 
 <button onclick="document.getElementById('id01').style.display='block'">Login</button>
-<!-- The Modal -->
-<div id="id01" class="modal">
+<div id="id01" class="form">
   <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Modal">&times;</span>
+class="close" title="Close Form">&times;</span>
 
-  <!-- Modal Content -->
-  <form class="modal-content" onsubmit="return login()">
+  <form class="form-content" onsubmit="return login()">
 
     <div class="container">
       <h1>Login</h1>

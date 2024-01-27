@@ -6,7 +6,7 @@
     <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
     <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
     <script src="javascript/main.js" defer></script>
-    <title>Homepage</title>
+    <title>Staff Records</title>
 </head>
 <body>
     <header>
@@ -21,7 +21,7 @@
         </nav>
     </header>
     <main>
-        <h1>Homepage</h1>
+        <h1>Staff Records</h1>
     </main>
     
 </body>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
     <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="javascript/main.js" defer></script>
     <title>Login</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id02" class="modal">
   <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/patient-records.php">
+  <form class="modal-content" action="/homepage.php">
     <div class="container">
       <h1>Sign Up</h1>
       <label for="email"><b>Email</b></label>
@@ -44,15 +45,15 @@
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/patient-records.php" onsubmit="login()">
+  <form class="modal-content" onsubmit="return login()">
 
     <div class="container">
       <h1>Login</h1>
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
       <button type="submit">Login</button>
       <label>

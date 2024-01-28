@@ -9,62 +9,63 @@
     <title>Login</title>
 </head>
 <body>
+<div class="container">
 
-<button onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
+  <button onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
 
-<div id="id02" class="form">
-  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Form">&times;</span>
-  <form class="form-content" action="/homepage.php">
-    <div class="container">
-      <h1>Sign Up</h1>
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+  <div id="id02" class="form">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Form">&times;</span>
+    <form class="form-content" action="/homepage.php">
+      <div class="form-box">
+        <h1>Sign Up</h1>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      <button type="submit" class="signup">Sign Up</button>
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+        <button type="submit" class="signup">Sign Up</button>
 
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
     </div>
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
-</div>
+        <div class="form-box" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+    </form>
+  </div>
 
-<button onclick="document.getElementById('id01').style.display='block'">Login</button>
-<div id="id01" class="form">
-  <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Form">&times;</span>
+  <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+  <div id="id01" class="form">
+    <span onclick="document.getElementById('id01').style.display='none'"
+  class="close" title="Close Form">&times;</span>
 
-  <form class="form-content" onsubmit="return login()">
+    <form class="form-content" onsubmit="return login()">
 
-    <div class="container">
-      <h1>Login</h1>
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+      <div class="form-box">
+        <h1>Login</h1>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
-</div>
+      <div class="form-box" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      </div>
+    </form>
+  </div>
 
 <!-- reference: https://www.w3schools.com/howto/howto_css_login_form.asp -->
-    
+</div>
 </body>
 </html>

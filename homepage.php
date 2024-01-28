@@ -9,20 +9,24 @@
     <title>Homepage</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="homepage.php">Homepage</a></li>
-                <li><a href="patient-records.php">Patient Records</a></li>
-                <li><a href="staff-records.php">Staff Records</a></li>
-                <li><a href="medicine-records.php">Medicine Records</a></li>
-                <li><a href="login.php">Log Out</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Homepage</h1>
-    </main>
-    
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="homepage.php">Homepage</a></li>
+                    <li><a href="patient-records.php">Patient Records</a></li>
+                    <li><a href="staff-records.php">Staff Records</a></li>
+                    <li><a href="medicine-records.php">Medicine Records</a></li>
+                    <li><a href="login.php">Log Out</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Homepage</h1>
+                <a class="homepage-link" href="patient-records.php">Patient Records</a>
+                <a class="homepage-link" href="staff-records.php">Staff Records</a>
+                <a class="homepage-link" href="medicine-records.php">Medicine Records</a>
+        </main>
+    </div>
 </body>
 </html>

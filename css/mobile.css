@@ -1,5 +1,9 @@
 body {
   background-color: lightblue;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1{
@@ -10,94 +14,125 @@ h1{
 }
 header{
   background-color:white;
-  border-radius:10px;
-  display:flex;
-  padding:15px;
-  margin:20px; 
 }
-
+.container{
+  width:100%;
+  margin:auto;
+}
+nav ul{
+  list-style:none;
+  padding-left:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  font-weight:bold;
+  font-size:17px;
+}
+nav ul li{
+  border-bottom:1px solid lightblue;
+  padding:5px;
+}
+nav ul li a{
+  display:inline-block;
+  text-decoration:none;
+  width:100%;
+  padding:8px 0;
+}
 li a:visited{
   color:#551A8B;
-}
-
-li a:hover{
-  color:#BF0F1E;
 }
 li a:active{
   color:#0000ff;
 }
+.homepage-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 150px;
+  padding: 10px;
+  margin: 10px;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  text-decoration: none;
+  color: darkblue;
+  background-color: white;
+  border-radius: 10px;
+  line-height: 150px;
+  flex: 1; 
+}
 
 /* login and signup */
 input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
   
-  button {
-    background-color: #6495ed;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
+button {
+  background-color: #6495ed;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
   
-  button:hover {
-    opacity: 0.8;
-  }
+button:hover {
+  opacity: 0.8;
+}
   
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #ff0000;
-  }
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #ff0000;
+}
    
-  .container {
-    padding: 16px;
-  }
+.form-box {
+  padding: 16px;
+}
   
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
   
-  .form {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-  }
+.form {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
   
-  .form-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto;
-    border: 1px solid #888;
-    width: 80%;
-  }
+.form-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 80%;
+}
   
-  .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-  }
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
   
-  .close:hover,
-  .close:focus {
-    color: red;
-    cursor: pointer;
-  }
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}

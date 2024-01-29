@@ -1,4 +1,4 @@
-function login() {
+/*function login() {
   // Retrieve username and password
   var username = document.getElementById('uname').value;
   var password = document.getElementById('psw').value;
@@ -18,3 +18,4 @@ function login() {
   // Prevent the form from submitting (optional, depending on your needs)
   return false;
 }
+*/

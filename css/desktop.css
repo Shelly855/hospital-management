@@ -19,6 +19,8 @@ header{
   margin:auto;
   max-width: 1200px;
   min-width: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
@@ -63,6 +65,7 @@ h1{
   border-radius: 10px;
   line-height: 150px;
   flex: 1; 
+  border:5px solid darkblue;
 }
 
 .homepage-link:hover {

@@ -72,6 +72,9 @@
   </div>
 
  <!-- reference: https://www.w3schools.com/howto/howto_css_login_form.asp -->
+ <?php
+    include("includes/footer.php");
+  ?>
 </div>
 </body>
 </html>

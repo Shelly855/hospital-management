@@ -10,23 +10,18 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="homepage.php">Homepage</a></li>
-                    <li><a href="patient-records.php">Patient Records</a></li>
-                    <li><a href="staff-records.php">Staff Records</a></li>
-                    <li><a href="medicine-records.php">Medicine Records</a></li>
-                    <li><a href="starting-page.php">Log Out</a></li>
-                </ul>
-            </nav>
-        </header>
+        <?php
+            include("includes/header.php");
+        ?>
         <main>
             <h1>Homepage</h1>
                 <a class="homepage-link" href="patient-records.php">Patient Records</a>
                 <a class="homepage-link" href="staff-records.php">Staff Records</a>
                 <a class="homepage-link" href="medicine-records.php">Medicine Records</a>
         </main>
+        <?php
+            include("includes/footer.php");
+        ?>
     </div>
 </body>
 </html>

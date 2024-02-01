@@ -13,7 +13,7 @@
 
   <button onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
 
-  <div id="id02" class="form">
+  <div id="id02" class="login-form">
     <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Form">&times;</span>
     <form class="form-content" action="includes/signup.php" method="POST">
       <div class="form-box">
@@ -34,9 +34,6 @@
         <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
           
         <button type="submit" class="signup">Sign Up</button>
-
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-        </label>
     </div>
         <div class="form-box" style="background-color:#f1f1f1">
           <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
@@ -45,7 +42,7 @@
   </div>
 
   <button onclick="document.getElementById('id01').style.display='block'">Login</button>
-  <div id="id01" class="form">
+  <div id="id01" class="login-form">
     <span onclick="document.getElementById('id01').style.display='none'"
   class="close" title="Close Form">&times;</span>
 
@@ -60,9 +57,6 @@
         <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
         <button type="submit">Login</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
       </div>
 
       <div class="form-box" style="background-color:#f1f1f1">

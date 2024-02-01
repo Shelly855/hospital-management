@@ -1,5 +1,5 @@
 <?php
-$errorfname = $errorlname = $erroruname = $erroruid = $errorpwd = "";
+$errorsid = $errorfname = $errorsurname = $erroruname = $errorpwd = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
 $allFields = "yes";
 
 if (isset($_POST['submit'])){
@@ -32,8 +32,8 @@ if (isset($_POST['submit'])){
         $errorhdate = "Hire Date is mandatory";
         $allFields = "no";
     }
-    if ($_POST['dname']==""){
-        $errordname = "Department Name is mandatory";
+    if ($_POST['department']==""){
+        $errordepartment = "Department Name is mandatory";
         $allFields = "no";
     }
     if ($_POST['salary']==""){
@@ -64,29 +64,31 @@ if (isset($_POST['submit'])){
         <main>
             <h1>Create Staff User</h1>
             <form method="post">
+                <div>
                         <label>Staff ID</label>
                         <input type="text" name = "sid">
-                        <span class="text-danger"><?php echo $errorsid; ?></span>
-
+                        <span class="blank-notify"><?php echo $errorsid; ?></span>
+                </div>
+                <div>
                         <label>First Name</label>
                         <input type="text" name = "fname">
-                        <span class="text-danger"><?php echo $errorfname; ?></span>
-
+                        <span class="blank-notify"><?php echo $errorfname; ?></span>
+                </div>
                         <label>Surname</label>
                         <input type="text" name = "surname">
-                        <span class="text-danger"><?php echo $errorsurname; ?></span>
+                        <span class="blank-notify"><?php echo $errorsurname; ?></span>
 
                         <label>Username</label>
                         <input type="text" name = "uname">
-                        <span class="text-danger"><?php echo $erroruname; ?></span>
+                        <span class="blank-notify"><?php echo $erroruname; ?></span>
 
                         <label>Default Password</label>
                         <input type="password" name = "pwd">
-                        <span class="text-danger"><?php echo $errorpwd; ?></span>
+                        <span class="blank-notify"><?php echo $errorpwd; ?></span>
 
                         <label>Date Of Birth</label>
                         <input type="date" name = "dob">
-                        <span class="text-danger"><?php echo $errordob; ?></span>
+                        <span class="blank-notify"><?php echo $errordob; ?></span>
 
                         <label>Job Role</label>
                         <select name="job">
@@ -98,15 +100,15 @@ if (isset($_POST['submit'])){
 
                         <label>Hire Date</label>
                         <input type="date" name = "hdate">
-                        <span class="text-danger"><?php echo $errorhdate; ?></span>
+                        <span class="blank-notify"><?php echo $errorhdate; ?></span>
 
                         <label>Department Name</label>
                         <input type="text" name = "department">
-                        <span class="text-danger"><?php echo $errordepartment; ?></span>
+                        <span class="blank-notify"><?php echo $errordepartment; ?></span>
 
                         <label>Salary</label>
                         <input type="number" name="salary" step="0.01">
-                        <span class="text-danger"><?php echo $errorsalary; ?></span>
+                        <span class="blank-notify"><?php echo $errorsalary; ?></span>
 
                         <input type="submit" value="Create Staff User" name ="submit">
                 </form>
@@ -114,3 +116,6 @@ if (isset($_POST['submit'])){
     </div>
 </body>
 </html>
+
+<!-- css for blank-notify 
+Week 7 php tutorial p7-->

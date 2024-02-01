@@ -80,14 +80,14 @@ li a:active{
   border:5px solid darkblue;
 }
 
-/* login and signup */
-input[type=text], input[type=password] {
+input, select{
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
+  display:inline-block;
+  padding: 11px 20px;
+  margin: 15px 0;
   box-sizing: border-box;
+  border-radius: 6px;
+  font-size:15px;
 }
   
 button {
@@ -118,7 +118,7 @@ span.psw {
   padding-top: 16px;
 }
   
-.form {
+.login-form {
   display: none;
   position: fixed;
   z-index: 1;
@@ -127,8 +127,6 @@ span.psw {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
   padding-top: 60px;
 }
   
@@ -146,4 +144,14 @@ span.psw {
   color: #000;
   font-size: 35px;
   font-weight: bold;
+}
+input:focus, select:focus{
+  background-color: lightgrey;
+}
+input[type=submit]{
+  width: 100%;
+}
+form{
+  font-size: 20px;
+  padding:10px;
 }

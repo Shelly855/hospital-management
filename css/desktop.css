@@ -90,13 +90,14 @@ h1{
   background-color: lightgrey;
 }
 
-input[type=text], input[type=password] {
+input, select{
   width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
+  display:inline-block;
+  padding: 11px 20px;
+  margin: 15px 0;
   box-sizing: border-box;
+  border-radius: 6px;
+  font-size:15px;
 }
   
 button {
@@ -128,7 +129,7 @@ span.psw {
   padding-top: 16px;
 }
   
-.form {
+.login-form {
   display: none;
   position: fixed;
   z-index: 1;
@@ -137,7 +138,6 @@ span.psw {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
   padding-top: 60px;
 }
 
@@ -162,24 +162,24 @@ span.psw {
   color: red;
   cursor: pointer;
 }
-
-input, select{
-  width: 100%;
-  display:inline-block;
-  padding: 11px 20px;
-  margin: 15px 0;
-  box-sizing: border-box;
-  border: 2px solid #591708;
-  border-radius: 6px;
-}
-form{
-  font-size:17px;
-  padding:20px;
-}
 input:focus, select:focus{
   background-color: lightgrey;
 }
 input[type=submit]{
   cursor: pointer;
   width: 100%;
+}
+form{
+  font-size: 20px;
+}
+.blank-notify{
+  color:red;
+  font-size: 14px;
+  font-weight: bold; 
+  margin-top:10px;
+}
+.blank-notify span {
+  display: block;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
 }

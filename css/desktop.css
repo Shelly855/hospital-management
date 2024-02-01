@@ -162,3 +162,24 @@ span.psw {
   color: red;
   cursor: pointer;
 }
+
+input, select{
+  width: 40%;
+  padding: 11px 30px;
+  margin: 15px 0;
+  box-sizing: border-box;
+  font-size:15px;
+  border: 2px solid #591708;
+  border-radius: 6px;
+}
+form{
+  text-align:center;
+  font-size:17px;
+  padding:20px;
+}
+input:focus, select:focus, textarea:focus {
+  background-color: #FFA15E;
+}
+input[type=submit]{
+  cursor: pointer;
+}

@@ -1,4 +1,6 @@
 <?php
+include_once("createUserSQL.php");
+
 $errorsid = $errorfname = $errorsurname = $erroruname = $errorpwd = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
 $allFields = "yes";
 
@@ -61,59 +63,62 @@ if (isset($_POST['submit'])){
 </head>
 <body>
     <div class="container">
+        <?php
+            include("includes/header.php");
+        ?>  
         <main>
             <h1>Create Staff User</h1>
             <form method="post">
-                        <label>Staff ID</label>
-                        <input type="text" name = "sid">
-                        <span class="blank-notify"><?php echo $errorsid; ?></span>
+                <label>Staff ID</label>
+                <input type="text" name = "sid">
+                <span class="blank-notify"><?php echo $errorsid; ?></span>
 
-                        <label>First Name</label>
-                        <input type="text" name = "fname">
-                        <span class="blank-notify"><?php echo $errorfname; ?></span>
+                <label>First Name</label>
+                <input type="text" name = "fname">
+                <span class="blank-notify"><?php echo $errorfname; ?></span>
 
-                        <label>Surname</label>
-                        <input type="text" name = "surname">
-                        <span class="blank-notify"><?php echo $errorsurname; ?></span>
+                <label>Surname</label>
+                <input type="text" name = "surname">
+                <span class="blank-notify"><?php echo $errorsurname; ?></span>
 
-                        <label>Username</label>
-                        <input type="text" name = "uname">
-                        <span class="blank-notify"><?php echo $erroruname; ?></span>
+                <label>Username</label>
+                <input type="text" name = "uname">
+                <span class="blank-notify"><?php echo $erroruname; ?></span>
 
-                        <label>Default Password</label>
-                        <input type="password" name = "pwd">
-                        <span class="blank-notify"><?php echo $errorpwd; ?></span>
+                <label>Default Password</label>
+                <input type="password" name = "pwd">
+                <span class="blank-notify"><?php echo $errorpwd; ?></span>
 
-                        <label>Date Of Birth</label>
-                        <input type="date" name = "dob">
-                        <span class="blank-notify"><?php echo $errordob; ?></span>
+                <label>Date Of Birth</label>
+                <input type="date" name = "dob">
+                <span class="blank-notify"><?php echo $errordob; ?></span>
 
-                        <label>Job Role</label>
-                        <select name="job">
-                            <option value="admin">Admin</option>
-                            <option value="doctor">Doctor</option>
-                            <option value="pharmacist">Pharmacist</option>
-                            <option value="lab technician">Pharmacist</option>
-                        </select>
+                <label>Job Role</label>
+                <select name="job">
+                    <option value="admin">Admin</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="pharmacist">Pharmacist</option>
+                    <option value="lab technician">Pharmacist</option>
+                </select>
 
-                        <label>Hire Date</label>
-                        <input type="date" name = "hdate">
-                        <span class="blank-notify"><?php echo $errorhdate; ?></span>
+                <label>Hire Date</label>
+                <input type="date" name = "hdate">
+                <span class="blank-notify"><?php echo $errorhdate; ?></span>
 
-                        <label>Department Name</label>
-                        <input type="text" name = "department">
-                        <span class="blank-notify"><?php echo $errordepartment; ?></span>
+                <label>Department Name</label>
+                <input type="text" name = "department">
+                <span class="blank-notify"><?php echo $errordepartment; ?></span>
 
-                        <label>Salary</label>
-                        <input type="number" name="salary" step="0.01">
-                        <span class="blank-notify"><?php echo $errorsalary; ?></span>
+                <label>Salary</label>
+                <input type="number" name="salary" step="0.01">
+                <span class="blank-notify"><?php echo $errorsalary; ?></span>
 
-                        <input type="submit" value="Create Staff User" name ="submit">
-                </form>
+                <input type="submit" value="Create Staff User" name ="submit">
+            </form>
         </main>
+        <?php
+            include("includes/footer.php");
+        ?>
     </div>
 </body>
 </html>
-
-<!-- css for blank-notify 
-Week 7 php tutorial p7-->

@@ -15,6 +15,9 @@
         ?>
         <main>
             <h1>Staff Records</h1>
+            <form action="createUser.php">
+                <input type="submit" class="record-button" value="Create New Staff" />
+            </form>
         </main>
         <?php
             include("includes/footer.php");

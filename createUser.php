@@ -64,16 +64,14 @@ if (isset($_POST['submit'])){
         <main>
             <h1>Create Staff User</h1>
             <form method="post">
-                <div>
                         <label>Staff ID</label>
                         <input type="text" name = "sid">
                         <span class="blank-notify"><?php echo $errorsid; ?></span>
-                </div>
-                <div>
+
                         <label>First Name</label>
                         <input type="text" name = "fname">
                         <span class="blank-notify"><?php echo $errorfname; ?></span>
-                </div>
+
                         <label>Surname</label>
                         <input type="text" name = "surname">
                         <span class="blank-notify"><?php echo $errorsurname; ?></span>

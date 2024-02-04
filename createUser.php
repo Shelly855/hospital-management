@@ -45,8 +45,9 @@ if (isset($_POST['submit'])){
 
     if($allFields == "yes")
     {
+        $hashedPassword = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
         $createUser = createUser();
-        header('Location: userCreationSummary.php?createUser='.$createUser);
+        header('Location: userCreationSuccess.php?createUser='.$createUser);
     }
 }
 ?>
@@ -98,7 +99,7 @@ if (isset($_POST['submit'])){
                     <option value="admin">Admin</option>
                     <option value="doctor">Doctor</option>
                     <option value="pharmacist">Pharmacist</option>
-                    <option value="lab technician">Pharmacist</option>
+                    <option value="lab technician">Lab Technician</option>
                 </select>
 
                 <label>Hire Date</label>
@@ -109,7 +110,7 @@ if (isset($_POST['submit'])){
                 <input type="text" name = "department">
                 <span class="blank-notify"><?php echo $errordepartment; ?></span>
 
-                <label>Salary</label>
+                <label>Annual Salary</label>
                 <input type="number" name="salary" step="0.01">
                 <span class="blank-notify"><?php echo $errorsalary; ?></span>
 

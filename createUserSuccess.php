@@ -9,11 +9,13 @@
     <title>Creation Successful</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <?php
             include("includes/header.php");
 
-            $result = $_GET['createUser'];
+            $result = isset($_GET['createUser']) ? $_GET['createUser'] : '';
+
+            $message = ($result) ? "Staff User Created Successfully!" : "Staff User Creation Failed!";
         ?>  
         <main>
             <h1>Staff User Created Successfully!</h1>

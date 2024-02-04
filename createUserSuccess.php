@@ -13,10 +13,13 @@
         <?php
             include("includes/header.php");
 
-            $result = $_GET['createUser']; //you can also use $_REQUEST[''] do reseach whats the difference!
+            $result = $_GET['createUser'];
         ?>  
         <main>
             <h1>Staff User Created Successfully!</h1>
+            <form action="staff-records.php">
+                <input type="submit" value="Back" />
+            </form>
         </main>
         <?php
             include("includes/footer.php");

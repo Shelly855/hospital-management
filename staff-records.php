@@ -16,7 +16,7 @@
         <main>
             <h1>Staff Records</h1>
             <form action="createUser.php">
-                <input type="submit" class="record-button" value="Create New Staff" />
+                <input type="submit" value="Create New Staff" />
             </form>
         </main>
         <?php

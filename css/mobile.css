@@ -13,6 +13,7 @@ h1{
 }
 header{
   background-color:white;
+  border-radius:6px;
 }
 .container{
   width:100%;
@@ -154,4 +155,36 @@ input[type=submit]{
 form{
   font-size: 20px;
   padding:10px;
+}
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-bottom:20px;
+}
+
+.table-container table {
+  width: 100%;
+}
+
+.table-container th,
+.table-container td {
+  padding: 8px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.table-container th {
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid blue;
+  background-color: cornflowerblue;
+  z-index: 1;
+}
+
+.table-container tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.table-container tr:nth-child(even) {
+  background-color: rgb(164, 164, 241);
 }

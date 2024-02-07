@@ -1,7 +1,7 @@
 <?php
 include_once("createUserSQL.php");
 
-$errorsid = $errorfname = $errorsurname = $erroruname = $errorpwd = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
+$errorsid = $errorfname = $errorsurname = $erroremail = $erroruname = $errorpwd = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
 $allFields = "yes";
 
 if (isset($_POST['submit'])){
@@ -18,12 +18,16 @@ if (isset($_POST['submit'])){
         $errorsurname = "Surname is mandatory";
         $allFields = "no";
     }
+    if ($_POST['email']==null){
+        $errorsurname = "Email Address is mandatory";
+        $allFields = "no";
+    }
     if ($_POST['uname']==""){
         $erroruname = "Username is mandatory";
         $allFields = "no";
     }
     if ($_POST['pwd']==""){
-        $errorpwd = "Default password is mandatory";
+        $errorpwd = "Password is mandatory";
         $allFields = "no";
     }
     if ($_POST['dob']==""){
@@ -82,11 +86,15 @@ if (isset($_POST['submit'])){
                 <input type="text" name = "surname">
                 <span class="blank-notify"><?php echo $errorsurname; ?></span>
 
+                <label>Email Address</label>
+                <input type="text" name = "email">
+                <span class="blank-notify"><?php echo $errorsurname; ?></span>
+
                 <label>Username</label>
                 <input type="text" name = "uname">
                 <span class="blank-notify"><?php echo $erroruname; ?></span>
 
-                <label>Default Password</label>
+                <label>Password</label>
                 <input type="password" name = "pwd">
                 <span class="blank-notify"><?php echo $errorpwd; ?></span>
 

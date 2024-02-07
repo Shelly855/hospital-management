@@ -188,3 +188,24 @@ form{
   border-bottom: 1px solid #ccc;
   margin-bottom: 5px;
 }
+
+table{
+  width: 100%;
+  border:3px solid black;
+}
+th, td{
+  padding: 10px 12px;
+  text-align: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+th{
+  font-size:18px;
+  border-bottom: 4px solid blue;
+  background-color: cornflowerblue;
+} 
+tr:nth-child(odd){
+  background-color: #fff;
+}
+tr:nth-child(even){
+  background-color: rgb(164, 164, 241);
+}

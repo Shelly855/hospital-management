@@ -71,6 +71,9 @@
                 <label>Username</label>
                 <input type="text" name="username" value="<?php echo $arrayResult[0]['username']; ?>">
 
+                <label>Date of Birth</label>
+                <input type="date" name="dob" value="<?php echo $arrayResult[0]['date_of_birth']; ?>">
+
                 <label>Job Role</label>
                 <select name="job">
                     <option value="admin" <?php echo ($arrayResult[0]['job_role']=="admin") ? "selected" : ""; ?>>Admin</option>
@@ -80,17 +83,16 @@
                 </select>
 
                 <label>Hire Date</label>
-                <input type="text" name="hdate" value="<?php echo $arrayResult[0]['hire_date']; ?>">
+                <input type="date" name="hdate" value="<?php echo $arrayResult[0]['hire_date']; ?>">
 
                 <label>Department Name</label>
                 <input type="text" name="department" value="<?php echo $arrayResult[0]['department_name']; ?>">
 
                 
                 <label>Annual Salary</label>
-                <input type="text" name="salary" value="<?php echo $arrayResult[0]['salary']; ?>">
+                <input type="number" name="salary" value="<?php echo $arrayResult[0]['salary']; ?>">
 
                 <input type="submit" name="submit" value="Update"><br>
-                <input type="submit" action="staff-records.php" value="Back" style="background-color: red;">
             </form>
         </main>
         <?php

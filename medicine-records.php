@@ -11,10 +11,44 @@
 <body>
     <div class="container">
         <?php
+            include("viewMedicineSql.php");
+
+            $medicine = getMedicine();
             include("includes/header.php");
         ?>
         <main>
             <h1>Medicine Records</h1>
+            <form action="createMedicine.php">
+                <input type="submit" value="Create New" />
+            </form>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medicine ID</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Unit</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            for ($i=0; $i<count($medicine); $i++):
+                        ?>
+                        <tr>
+                            <td><?php echo $medicine[$i]['medicine_id']?></td>
+                            <td><?php echo $medicine[$i]['medicine_name']?></td>
+                            <td><?php echo $medicine[$i]['type']?></td>
+                            <td><?php echo $medicine[$i]['quantity_in_stock']?></td>
+                            <td><?php echo $medicine[$i]['unit']?></td>
+                            <td><a href="updateMedicine.php?mid=<?php echo $medicine[$i]['medicine_id']; ?>">Update</a></td>
+                        </tr>
+                        <?php endfor;?>
+                    </tbody>
+                </table>   
         </main>
         <?php
             include("includes/footer.php");

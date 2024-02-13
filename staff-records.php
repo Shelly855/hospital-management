@@ -60,7 +60,6 @@
                     </tbody>
                 </table>   
             </div> 
-
         </main>
         <?php
             include("includes/footer.php");

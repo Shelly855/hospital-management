@@ -1,5 +1,5 @@
 <?php
-include_once("createUserSQL.php");
+include_once("createUserSql.php");
 
 $errorsid = $errorfname = $errorsurname = $erroremail = $erroruname = $errorpwd = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
 $allFields = "yes";
@@ -19,7 +19,7 @@ if (isset($_POST['submit'])){
         $allFields = "no";
     }
     if ($_POST['email']==null){
-        $errorsurname = "Email Address is mandatory";
+        $erroremail = "Email Address is mandatory";
         $allFields = "no";
     }
     if ($_POST['uname']==""){
@@ -75,7 +75,7 @@ if (isset($_POST['submit'])){
             <h1>Create Staff User</h1>
             <form method="post">
                 <label>Staff ID</label>
-                <input type="text" name = "sid">
+                <input type="number" name = "sid">
                 <span class="blank-notify"><?php echo $errorsid; ?></span>
 
                 <label>First Name</label>
@@ -88,7 +88,7 @@ if (isset($_POST['submit'])){
 
                 <label>Email Address</label>
                 <input type="text" name = "email">
-                <span class="blank-notify"><?php echo $errorsurname; ?></span>
+                <span class="blank-notify"><?php echo $erroremail; ?></span>
 
                 <label>Username</label>
                 <input type="text" name = "uname">

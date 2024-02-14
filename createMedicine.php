@@ -73,7 +73,7 @@ if (isset($_POST['submit'])){
                 <input type="text" name = "unit">
                 <span class="blank-notify"><?php echo $errorunit; ?></span>
 
-                <input type="submit" value="Create Medicine" name ="submit">
+                <input type="submit" value="Create Medicine" name ="submit"><a href="medicine-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
             </form>
         </main>
         <?php

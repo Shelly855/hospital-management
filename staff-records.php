@@ -54,7 +54,7 @@
                             <td><?php echo $staff[$i]['hire_date']?></td>
                             <td><?php echo $staff[$i]['department_name']?></td>
                             <td><?php echo $staff[$i]['salary']?></td>
-                            <td><a href="updateUser.php?sid=<?php echo $staff[$i]['staff_id']; ?>">Update</a></td>
+                            <td><a href="updateUser.php?sid=<?php echo $staff[$i]['staff_id']; ?>">Update</a> <a href="deleteUser.php?sid=<?php echo $staff[$i]['staff_id']; ?>">Delete</a></td>
                         </tr>
                         <?php endfor;?>
                     </tbody>

@@ -16,7 +16,7 @@ function createMedicine(){
         die("Error in prepare statement: " . $db->error);
     }
 
-    $stmt->bind_param('isds', $_POST['mid'], $_POST['medname'], $_POST['type'], $_POST['quantity'], $_POST['unit']);
+    $stmt->bind_param('issds', $_POST['mid'], $_POST['medname'], $_POST['type'], $_POST['quantity'], $_POST['unit']);
 
     $result = $stmt->execute();
 

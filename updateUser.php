@@ -92,7 +92,7 @@
                 <label>Annual Salary</label>
                 <input type="number" name="salary" value="<?php echo $arrayResult[0]['salary']; ?>">
 
-                <input type="submit" name="submit" value="Update"><br>
+                <input type="submit" name="submit" value="Update"><a href="staff-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
             </form>
         </main>
         <?php

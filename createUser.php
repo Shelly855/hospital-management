@@ -122,7 +122,7 @@ if (isset($_POST['submit'])){
                 <input type="number" name="salary" step="0.01">
                 <span class="blank-notify"><?php echo $errorsalary; ?></span>
 
-                <input type="submit" value="Create Staff User" name ="submit">
+                <input type="submit" value="Create Staff User" name ="submit"><a href="staff-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
             </form>
         </main>
         <?php

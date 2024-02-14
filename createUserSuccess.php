@@ -27,8 +27,5 @@
             include("includes/footer.php");
         ?>
     </div>
-    
 </body>
 </html>
-
-<!-- week 7 php tutorial p10 -->

@@ -44,7 +44,7 @@
                             <td><?php echo $medicine[$i]['type']?></td>
                             <td><?php echo $medicine[$i]['quantity_in_stock']?></td>
                             <td><?php echo $medicine[$i]['unit']?></td>
-                            <td><a href="updateMedicine.php?mid=<?php echo $medicine[$i]['medicine_id']; ?>">Update</a></td>
+                            <td><a href="updateMedicine.php?mid=<?php echo $medicine[$i]['medicine_id']; ?>">Update</a> <a href="deleteMedicine.php?mid=<?php echo $medicine[$i]['medicine_id']; ?>">Delete</a></td>
                         </tr>
                         <?php endfor;?>
                     </tbody>

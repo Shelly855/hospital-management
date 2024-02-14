@@ -71,7 +71,7 @@
                 <label>Unit</label>
                 <input type="text" name="unit" value="<?php echo $arrayResult[0]['unit']; ?>">
 
-                <input type="submit" name="submit" value="Update"><br>
+                <input type="submit" name="submit" value="Update"><a href="medicine-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
             </form>
         </main>
         <?php

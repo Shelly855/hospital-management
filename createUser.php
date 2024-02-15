@@ -14,11 +14,11 @@ if (isset($_POST['submit'])){
         $errorfname = "First name is mandatory";
         $allFields = "no";
     }
-    if ($_POST['surname']==null){
+    if ($_POST['surname']==""){
         $errorsurname = "Surname is mandatory";
         $allFields = "no";
     }
-    if ($_POST['email']==null){
+    if ($_POST['email']==""){
         $erroremail = "Email Address is mandatory";
         $allFields = "no";
     }

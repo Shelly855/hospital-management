@@ -19,7 +19,7 @@
         <main>
             <h1>Medicine Records</h1>
             <form action="createMedicine.php">
-                <input type="submit" value="Create New" />
+                <input type="submit" value="Create New Medicine" />
             </form>
 
             <div class="table-container">

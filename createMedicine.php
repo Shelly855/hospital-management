@@ -18,11 +18,11 @@ if (isset($_POST['submit'])){
         $errortype = "Medicine Type is mandatory";
         $allFields = "no";
     }
-    if ($_POST['quantity']==null){
+    if ($_POST['quantity']==""){
         $errorquantity = "Quantity in Stock is mandatory";
         $allFields = "no";
     }
-    if ($_POST['unit']==null){
+    if ($_POST['unit']==""){
         $errorunit = "Unit is mandatory";
         $allFields = "no";
     }
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])){
     if($allFields == "yes")
     {
         $createMedicine = createMedicine();
-        header('Location: medicineCreationSuccess.php?createUser='.$createUser);
+        header('Location: medicineCreationSuccess.php?createMedicine='.$createMedicine);
     }
 }
 ?>

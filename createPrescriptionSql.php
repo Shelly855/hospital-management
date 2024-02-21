@@ -22,7 +22,7 @@ function createPrescription(){
 
     if($result){
         $created = true;
-        header("Location: createPrescriptionSuccess.php");
+        header("Location: createPrescriptionSuccess.php?createPrescription=success");
         exit();
     } else {
         die("Error in execute statement: " . $stmt->error);

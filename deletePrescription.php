@@ -6,7 +6,7 @@
     <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
     <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
     <script src="javascript/main.js" defer></script>
-    <title>Delete Medicine</title>
+    <title>Delete Prescription</title>
 </head>
 <body>
 <div class="container">
@@ -16,9 +16,9 @@
             $servername = "localhost";
             $username = "root";
             $password = "";
-            $dbname = "medicine_supply_database";
+            $dbname = "patient_database";
 
-            $conn = new mysqli("localhost", "root", "", "medicine_supply_database");
+            $conn = new mysqli("localhost", "root", "", "patient_database");
 
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
@@ -26,19 +26,19 @@
 
             if (isset($_POST['delete'])) {
 
-                $stmt = $conn->prepare("DELETE FROM Medicine WHERE medicine_id = ?");
-                $stmt->bind_param('i', $_POST['mid']);
+                $stmt = $conn->prepare("DELETE FROM Prescriptions WHERE prescription_id = ?");
+                $stmt->bind_param('i', $_POST['presid']);
                 $stmt->execute();
                 $stmt->close();
             
-                header("Location: medicine-records.php?deleted=true");
+                header("Location: prescriptions.php?deleted=true");
                 exit();
             }
 
-            $sql = "SELECT medicine_name, type, quantity_in_stock, unit FROM Medicine WHERE medicine_id=?";
+            $sql = "SELECT patient_id, medicine_id, prescription_quantity, date_issued, date_collected FROM Prescriptions WHERE prescription_id=?";
             $stmt = $conn->prepare($sql);
 
-            $stmt->bind_param('i', $_GET['mid']);
+            $stmt->bind_param('i', $_GET['presid']);
 
             $stmt->execute();
 
@@ -54,19 +54,21 @@
             $conn->close();
         ?>  
         <main>
-        <h2>Delete Medicine <?php echo $_GET['mid'];?></h2><br>
-        <div class="confirm">Are you sure want to delete this medicine record?</div><br>
-                <label class="delete-label">Name</label>
+        <h2>Delete Prescription <?php echo $_GET['presid'];?></h2><br>
+        <div class="confirm">Are you sure want to delete this prescription?</div><br>
+                <label class="delete-label">Patient ID</label>
                 <label><?php echo $arrayResult[0][0] ?></label><br>
-                <label class="delete-label">Type</label>
+                <label class="delete-label">Medicine ID</label>
                 <label><?php echo $arrayResult[0][1] ?></label><br>
-                <label class="delete-label">Quantity</label>
+                <label class="delete-label">Prescription Quantity</label>
                 <label><?php echo $arrayResult[0][2] ?></label><br>
-                <label class="delete-label">Unit</label>
+                <label class="delete-label">Date Issued</label>
                 <label><?php echo $arrayResult[0][3] ?></label><br>
+                <label class="delete-label">Date Collected</label>
+                <label><?php echo $arrayResult[0][4] ?></label><br>
                 <form method="post">
-                     <input type="hidden" name="mid" value = "<?php echo $_GET['mid'] ?>"><br>
-                    <input type="submit" value="Delete" name="delete"><a href="medicine-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                     <input type="hidden" name="presid" value = "<?php echo $_GET['presid'] ?>"><br>
+                    <input type="submit" value="Delete" name="delete"><a href="prescriptions.php" style="font-weight: bold; padding-left: 30px;">Back</a>
                 </form>
         </main>
         <?php

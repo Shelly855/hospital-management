@@ -55,28 +55,17 @@
         ?>  
         <main>
         <h2>Delete Patient <?php echo $_GET['pid'];?></h2><br>
-        <h3 style="color: red;">Are you sure want to delete this patient?</h3><br>
-
-                <label style="font-size: 20px; color:blue; font-weight: bold;">First Name</label>
-
-                <label style="font-size: 20px;"><?php echo $arrayResult[0][0] ?></label>
-
-                <label style="font-size: 20px; color:blue; font-weight: bold;">Surname</label>
-
-                <label style="font-size: 20px;"><?php echo $arrayResult[0][1] ?></label>
-
-                <label style="font-size: 20px; color:blue; font-weight: bold;">Email</label>
-
-                <label style="font-size: 20px;"><?php echo $arrayResult[0][2] ?></label>
-                
-                <label style="font-size: 20px; color:blue; font-weight: bold;">Date of Birth</label>
-
-                <label style="font-size: 20px;"><?php echo $arrayResult[0][3] ?></label>
-                
-                <label style="font-size: 20px; color:blue; font-weight: bold;">Address</label>
-
-                <label style="font-size: 20px;"><?php echo $arrayResult[0][4] ?></label>
-
+        <div class="confirm">Are you sure want to delete this patient?</div><br>
+                <label class="delete-label">First Name</label>
+                <label><?php echo $arrayResult[0][0] ?></label><br>
+                <label class="delete-label">Surname</label>
+                <label><?php echo $arrayResult[0][1] ?></label><br>
+                <label class="delete-label">Email</label>
+                <label><?php echo $arrayResult[0][2] ?></label><br>
+                <label class="delete-label">Date of Birth</label>
+                <label><?php echo $arrayResult[0][3] ?></label><br>
+                <label class="delete-label">Address</label>
+                <label><?php echo $arrayResult[0][4] ?></label><br>
                 <form method="post">
                      <input type="hidden" name="pid" value = "<?php echo $_GET['pid'] ?>"><br>
                     <input type="submit" value="Delete" name="delete"><a href="patient-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>

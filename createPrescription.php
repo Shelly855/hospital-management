@@ -28,7 +28,6 @@ if (isset($_POST['submit'])) {
     }
     if ($allFields == "yes" && isset($_POST['collected'])) {
         $createPrescription = createPrescription();
-        header('Location: prescriptionCreationSuccess.php?createPrescription='.$createPrescription);
     }
 }
 ?>

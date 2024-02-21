@@ -30,7 +30,6 @@ if (isset($_POST['submit'])){
     if($allFields == "yes")
     {
         $createMedicine = createMedicine();
-        header('Location: medicineCreationSuccess.php?createMedicine='.$createMedicine);
     }
 }
 ?>

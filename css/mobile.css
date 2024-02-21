@@ -5,7 +5,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+main{
+  margin:5px;
+}
 h1{
   font-size: 50px;
   color:darkblue;
@@ -31,7 +33,6 @@ footer{
   position: relative;
   margin-top:auto;
 }
-
 footer li{
   padding: 10px;
   display: flex;
@@ -82,7 +83,6 @@ li a:active{
   flex: 1; 
   border:5px solid darkblue;
 }
-
 input, select{
   width: 100%;
   display:inline-block;
@@ -92,7 +92,12 @@ input, select{
   border-radius: 6px;
   font-size:15px;
 }
-  
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom:2px;
+  font-size:20px;
+}
 button, input[type=submit] {
   background-color: #6495ed;
   color: white;
@@ -104,21 +109,17 @@ button, input[type=submit] {
   border-radius: 6px;
   border: 1px darkblue solid;
 }
-  
 button:hover {
   opacity: 0.8;
 }
-  
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
   background-color: #ff0000;
 }
-   
 .form-box {
   padding: 16px;
 }
-  
 .login-form {
   display: none;
   position: fixed;
@@ -130,14 +131,12 @@ button:hover {
   overflow: auto;
   padding-top: 60px;
 }
-  
 .form-content {
   background-color: #fefefe;
   margin: 5% auto 15% auto;
   border: 1px solid #888;
   width: 80%;
 }
-  
 .close {
   position: absolute;
   right: 25px;
@@ -161,18 +160,15 @@ form{
   overflow-y: auto;
   padding-bottom:20px;
 }
-
 .table-container table {
   width: 100%;
 }
-
 .table-container th,
 .table-container td {
   padding: 8px;
   padding: 10px 12px;
   text-align: left;
 }
-
 .table-container th {
   position: sticky;
   top: 0;
@@ -180,11 +176,30 @@ form{
   background-color: cornflowerblue;
   z-index: 1;
 }
-
 .table-container tr:nth-child(odd) {
   background-color: #fff;
 }
-
 .table-container tr:nth-child(even) {
   background-color: rgb(164, 164, 241);
+}
+.delete-label {
+  color: blue;
+  font-weight: bold;
+}
+.confirm {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}
+.blank-notify{
+  color:red;
+  font-size: 14px;
+  font-weight: bold; 
+  margin-bottom:25px;
+  display:block;
+}
+.blank-notify span {
+  display: block;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
 }

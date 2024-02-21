@@ -55,20 +55,13 @@
         ?>  
         <main>
         <h2>Delete Staff User <?php echo $_GET['sid'];?></h2><br>
-        <h3 style="color: red;">Are you sure want to delete this user?</h3><br>
-
-                <label style="font-size: 20px; color:blue; font-weight: bold;">First Name</label>
-
-                <label style="font-size: 20px;"><?php echo $arrayResult[0][0] ?></label>
-
-                <label style="font-size: 20px; color:blue; font-weight: bold;">Surname</label>
-
-                <label style="font-size: 20px;"><?php echo $arrayResult[0][1] ?></label>
-
-                <label style="font-size: 20px; color:blue; font-weight: bold;">Job Role</label>
-
-                <label style="font-size: 20px;"><?php echo $arrayResult[0][6] ?></label>
-
+        <div class="confirm">Are you sure want to delete this user?</div><br>
+                <label class="delete-label">First Name</label>
+                <label><?php echo $arrayResult[0][0] ?></label><br>
+                <label class="delete-label">Surname</label>
+                <label><?php echo $arrayResult[0][1] ?></label><br>
+                <label class="delete-label">Job Role</label>
+                <label><?php echo $arrayResult[0][6] ?></label><br>
                 <form method="post">
                      <input type="hidden" name="sid" value = "<?php echo $_GET['sid'] ?>"><br>
                     <input type="submit" value="Delete" name="delete"><a href="staff-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>

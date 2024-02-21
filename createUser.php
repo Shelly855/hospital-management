@@ -51,7 +51,6 @@ if (isset($_POST['submit'])){
     {
         $hashedPassword = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
         $createUser = createUser();
-        header('Location: userCreationSuccess.php?createUser='.$createUser);
     }
 }
 ?>

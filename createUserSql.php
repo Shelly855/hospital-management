@@ -24,7 +24,7 @@ function createUser(){
 
     if($result){
         $created = true;
-        header("Location: createUserSuccess.php");
+        header("Location: createUserSuccess.php?createUser=success");
         exit();
     } else {
         die("Error in execute statement: " . $stmt->error);

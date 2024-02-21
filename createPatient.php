@@ -42,7 +42,6 @@ if (isset($_POST['submit'])){
     if($allFields == "yes")
     {
         $createPatient = createPatient();
-        header('Location: patientCreationSuccess.php?createPatient='.$createPatient);
     }
 }
 ?>

@@ -2,7 +2,7 @@
 include_once("createPrescriptionSql.php");
 
 $errorpresid = $errorpid = $errormid = $errorpresquantity = $errorissued = "";
-$allFields = "yes";
+$allFields = true;
 
 if (isset($_POST['submit'])) {
 

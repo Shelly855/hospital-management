@@ -2,7 +2,7 @@
 include_once("createPatientSql.php");
 
 $errorpid = $errorpfname = $errorpsurname = $errorpemail = $errorpdob = $erroraddress = $errorcity = $errorpostcode = "";
-$allFields = "yes";
+$allFields = true;
 
 if (isset($_POST['submit'])){
 

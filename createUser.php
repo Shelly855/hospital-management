@@ -2,7 +2,7 @@
 include_once("createUserSql.php");
 
 $errorsid = $errorfname = $errorsurname = $erroremail = $erroruname = $errorpwd = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
-$allFields = "yes";
+$allFields = true;
 
 if (isset($_POST['submit'])){
 

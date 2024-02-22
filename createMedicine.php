@@ -2,7 +2,7 @@
 include_once("createMedicineSql.php");
 
 $errormid = $errormedname = $errortype = $errorquantity = $errorunit = "";
-$allFields = "yes";
+$allFields = true;
 
 if (isset($_POST['submit'])){
 

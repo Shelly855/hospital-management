@@ -15,9 +15,15 @@
         ?>
         <main>
             <h1>Homepage</h1>
-                <a class="homepage-link" href="patient-records.php">Patient Records</a>
-                <a class="homepage-link" href="staff-records.php">Staff Records</a>
-                <a class="homepage-link" href="medicine-records.php">Medicine Records</a>
+            <?php
+                if(isset($_SESSION['role']) && isset($navigationLinks[$_SESSION['role']])) {
+                    echo '<ul>';
+                    foreach ($navigationLinks[$_SESSION['role']] as $title => $link) {
+                        echo '<li><a href="' . $link . '" class="homepage-link">' . $title . '</a></li>';
+                    }
+                    echo '</ul>';
+                }
+            ?>
         </main>
         <?php
             include("includes/footer.php");

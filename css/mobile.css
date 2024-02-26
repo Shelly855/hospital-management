@@ -63,23 +63,27 @@ li a:visited{
 li a:active{
   color:#0000ff;
 }
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 .homepage-link {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: center;
   height: 150px;
+  width: 150px;
   padding: 10px;
   margin: 10px;
-  justify-content: center;
   text-align: center;
   font-size: 25px;
   text-decoration: none;
   color: darkblue;
   background-color: white;
   border-radius: 10px;
-  line-height: 150px;
-  flex: 1; 
-  border:5px solid darkblue;
+  border: 5px solid darkblue;
 }
 input, select{
   width: 100%;

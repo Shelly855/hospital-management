@@ -10,7 +10,7 @@
         ),
         'pharmacist' => array(
             'Homepage' => 'homepage.php',
-            'Prescriptions' => 'pharmacist-prescriptions.php',
+            'Prescriptions' => 'prescriptions.php',
             'Medicine Records' => 'medicine-records.php',
             'Log Out' => 'login.php'
         ),

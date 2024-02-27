@@ -6,7 +6,7 @@
     <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
     <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
     <script src="javascript/main.js" defer></script>
-    <title>Update Prescription</title>
+    <title>Update Lab Test</title>
 </head>
 <body>
     <div class="container">
@@ -16,9 +16,9 @@
             $servername = "localhost";
             $username = "root";
             $password = "";
-            $database = "patient_database";
+            $database = "lab_database";
 
-            $conn = new mysqli("localhost", "root", "", "patient_database");
+            $conn = new mysqli("localhost", "root", "", "lab_database");
 
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
@@ -26,21 +26,21 @@
 
             if (isset($_POST['submit'])) {
 
-                $sql = "UPDATE Prescriptions SET patient_id = ?, medicine_id = ?, prescription_quantity = ?, date_issued = ?, date_collected = ? WHERE prescription_id = ?";
+                $sql = "UPDATE Lab_Tests SET patient_id = ?, lab_test_name = ?, date_requested = ?, date_completed = ?, result = ?, notes = ? WHERE lab_test_id = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("iiissi", $_POST['pid'], $_POST['mid'], $_POST['presquantity'], $_POST['issued'], $_POST['collected'], $_GET['presid']);
+                $stmt->bind_param("isssssi", $_POST['pid'], $_POST['tname'], $_POST['reqdate'], $_POST['cdate'], $_POST['result'], $_POST['lnotes'], $_GET['lid']);
                 
                 $stmt->execute();
                 
                 $stmt->close();
                 
-                header('Location: prescriptions.php');
+                header('Location: lab-tests.php');
                 exit();
             }
 
-            $sql = "SELECT * FROM Prescriptions WHERE prescription_id=?";
+            $sql = "SELECT * FROM Lab_Tests WHERE lab_test_id=?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("i", $_GET['presid']);
+            $stmt->bind_param("i", $_GET['lid']);
 
             $stmt->execute();
 
@@ -56,25 +56,28 @@
 
         ?>
         <main>
-            <h1>Update Prescription</h1>
+            <h1>Update Lab Test</h1>
             <form method="post">
 
                 <label>Patient ID</label>
                 <input type="number" name="pid" value="<?php echo $arrayResult[0]['patient_id']; ?>">
 
-                <label>Medicine ID</label>
-                <input type="number" name="mid" value="<?php echo $arrayResult[0]['medicine_id']; ?>">
+                <label>Test Name</label>
+                <input type="text" name="tname" value="<?php echo $arrayResult[0]['lab_test_name']; ?>">
 
-                <label>Prescription Quantity</label>
-                <input type="text" name="presquantity" value="<?php echo $arrayResult[0]['prescription_quantity']; ?>">
+                <label>Date Requested</label>
+                <input type="date" name="reqdate" value="<?php echo $arrayResult[0]['date_requested']; ?>">
 
-                <label>Date Issued</label>
-                <input type="date" name="issued" value="<?php echo $arrayResult[0]['date_issued']; ?>">
+                <label>Date Completed</label>
+                <input type="date" name="cdate" value="<?php echo $arrayResult[0]['date_completed']; ?>">
 
-                <label>Date Collected</label>
-                <input type="text" name="collected" value="<?php echo $arrayResult[0]['date_collected']; ?>">
+                <label>Result</label>
+                <input type="text" name="result" value="<?php echo $arrayResult[0]['result']; ?>">
 
-                <input type="submit" name="submit" value="Update"><a href="prescriptions.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <label>Notes</label>
+                <input type="text" name="lnotes" value="<?php echo $arrayResult[0]['notes']; ?>">
+
+                <input type="submit" name="submit" value="Update"><a href="lab-tests.php" style="font-weight: bold; padding-left: 30px;">Back</a>
             </form>
         </main>
         <?php

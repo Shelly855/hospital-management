@@ -70,11 +70,11 @@ if (isset($_POST['submit'])) {
                 <input type="date" name = "issued">
                 <span class="blank-notify"><?php echo $errorissued; ?></span>
 
-                <label>Date Collected</label>
+                <label>Date Collected(when collected)</label>
                 <input type="date" name = "collected">
                 <span class="blank-notify"></span>
 
-                <input type="submit" name="submit" value="Create Prescription">
+                <input type="submit" name="submit" value="Create Prescription"><a href="prescriptions.php" style="font-weight: bold; padding-left: 30px;">Back</a>
             </form>
         </main>
         <?php

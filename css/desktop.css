@@ -201,7 +201,7 @@ tr:nth-child(even){
   display: flex;
   align-items: center;
 }
-#search {
+.search {
   flex: 1;
   margin-right: 10px;
 }

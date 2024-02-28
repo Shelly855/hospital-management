@@ -22,12 +22,9 @@
             <form action="createPatient.php">
                 <input type="submit" value="Create New Patient" />
             </form>
-            <div class="search-container">
-                <form action="patient-records.php" method="GET">
-                    <input type="text" id="search" name="q" placeholder="Search by Name">
-                    <button id="search-button" type="submit">Search</button>
-                </form>
-            </div>
+            <form action="searchForPatient.php">
+                <input type="submit" value="Search Records" />
+            </form>
 
             <div class="table-container">
                 <table>

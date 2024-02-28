@@ -202,3 +202,17 @@ form{
   padding: 10px;
   z-index: 9999;
 }
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.search {
+  flex: 1;
+  margin-right: 10px;
+}
+#search-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  display: inline-block;
+}

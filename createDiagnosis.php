@@ -1,5 +1,5 @@
 <?php
-include_once("createDiagnosisSql.php");
+include_once("createRecordSql/createDiagnosisSql.php");
 
 $errordid = $errorpid = $errordname = $errorddate = $errorstatus = "";
 $allFields = true;

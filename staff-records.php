@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <?php
-            include("viewUserSql.php");
+            include("viewRecordsSql/viewUserSql.php");
 
             $staff = getUsers();
             include("includes/header.php");

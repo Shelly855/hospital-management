@@ -19,31 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $role = $array_user[0]['Role'];
             switch ($role) {
                 case "doctor":
-                    session_start();
-                    $_SESSION['name'] = $array_user[0]['firstName'];
-                    $_SESSION['stfID'] = $array_user[0]['staffId'];
-                    header("Location: patient-records.php");
-                    exit();
-                    break;
                 case "pharmacist":
-                    session_start();
-                    $_SESSION['name'] = $array_user[0]['firstName'];
-                    $_SESSION['stfID'] = $array_user[0]['staffId'];
-                    header("Location: prescriptions.php");
-                    exit();
-                    break;
                 case "lab technician":
-                    session_start();
-                    $_SESSION['name'] = $array_user[0]['firstName'];
-                    $_SESSION['stfID'] = $array_user[0]['staffId'];
-                    header("Location: patient-records.php");
-                    exit();
-                    break;
                 case "admin":
                     session_start();
                     $_SESSION['name'] = $array_user[0]['firstName'];
                     $_SESSION['stfID'] = $array_user[0]['staffId'];
-                    header("Location: patient-records.php");
+                    header("Location: index.php");
                     exit();
                     break;
                 default:

@@ -1,5 +1,5 @@
 <?php
-include_once("createMedicineSql.php");
+include_once("createRecordSql/createMedicineSql.php");
 
 $errormid = $errormedname = $errortype = $errorquantity = $errorunit = "";
 $allFields = true;

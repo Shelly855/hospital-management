@@ -1,5 +1,5 @@
 <?php
-include_once("createPatientSql.php");
+include_once("createRecordSql/createPatientSql.php");
 
 $errorpid = $errorpfname = $errorpsurname = $errorpemail = $errorpdob = $erroraddress = $errorcity = $errorpostcode = "";
 $allFields = true;

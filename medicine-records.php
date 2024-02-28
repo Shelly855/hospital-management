@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <?php
-            include("viewMedicineSql.php");
+            include("viewRecordsSql/viewMedicineSql.php");
 
             $medicine = getMedicine();
             include("includes/header.php");

@@ -1,5 +1,5 @@
 <?php
-include_once("createLabTestSql.php");
+include_once("createRecordSql/createLabTestSql.php");
 
 $errorlid = $errorpid = $errortname = $errorreqdate = "";
 $allFields = true;

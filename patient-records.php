@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <?php
-            include("viewPatientSql.php");
+            include("viewRecordsSql/viewPatientSql.php");
 
             $patients = getPatients();
             include("includes/header.php");
@@ -22,6 +22,12 @@
             <form action="createPatient.php">
                 <input type="submit" value="Create New Patient" />
             </form>
+            <div class="search-container">
+                <form action="patient-records.php" method="GET">
+                    <input type="text" id="search" name="q" placeholder="Search by Name">
+                    <button id="search-button" type="submit">Search</button>
+                </form>
+            </div>
 
             <div class="table-container">
                 <table>

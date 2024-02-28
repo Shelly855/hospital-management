@@ -1,5 +1,5 @@
 <?php
-include_once("createPrescriptionSql.php");
+include_once("createRecordSql/createPrescriptionSql.php");
 
 $errorpresid = $errorpid = $errormid = $errorpresquantity = $errorissued = "";
 $allFields = true;

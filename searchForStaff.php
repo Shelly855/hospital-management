@@ -29,7 +29,7 @@
 
             <?php
                 if(isset($_GET['surname']) || isset($_GET['date_of_birth']) || isset($_GET['job_role']) || isset($_GET['department_name'])) {
-                    include("staffSearch.php");
+                    include("search/staffSearch.php");
                 }
                 if (isset($searchResults) && !empty($searchResults)) {
                     echo "<table>";

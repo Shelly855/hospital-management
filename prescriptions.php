@@ -21,6 +21,9 @@
             <form action="createPrescription.php">
                 <input type="submit" value="Create New Prescription" />
             </form>
+            <form action="searchForPrescription.php">
+                <input type="submit" value="Search Records" />
+            </form>
 
             <div class="table-container">
                 <table>

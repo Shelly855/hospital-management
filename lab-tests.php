@@ -21,6 +21,9 @@
             <form action="createLabTest.php">
                 <input type="submit" value="Create New Lab Test" />
             </form>
+            <form action="searchForLabTest.php">
+                <input type="submit" value="Search Records" />
+            </form>
 
             <div class="table-container">
                 <table>

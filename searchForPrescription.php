@@ -13,45 +13,38 @@
         <?php include("includes/header.php"); ?>  
         <main>
             <h1>Search For Patient</h1>
-            <form action="patient-records.php">
+            <form action="prescriptions.php">
                 <input type="submit" value="Back" />
             </form>
 
             <div class="search-container">
                 <form action="" method="GET">
-                    <input type="text" class="search" name="surname" placeholder="Search by Surname">
-                    <input type="date" class="search" name="date_of_birth" placeholder="Search by DOB">
-                    <input type="text" class="search" name="address" placeholder="Search by Address">
+                    <input type="number" class="search" name="patient_id" placeholder="Search by Patient ID">
+                    <input type="number" class="search" name="medicine_id" placeholder="Search by Medicine ID">
                     <button id="search-button" type="submit">Search</button>
                 </form>
             </div>
 
             <?php
-                if(isset($_GET['surname']) || isset($_GET['date_of_birth']) || isset($_GET['address'])) {
-                    include("search/patientSearch.php");
+                if(isset($_GET['patient_id']) || isset($_GET['medicine_id'])) {
+                    include("search/prescriptionSearch.php");
                 }
                 if (isset($searchResults) && !empty($searchResults)) {
                     echo "<table>";
                     echo "<tr>
                     <th>Patient ID</th>
-                    <th>First Name</th>
-                    <th>Surname</th>
-                    <th>Email</th>
-                    <th>DOB</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Postcode</th>
+                    <th>Medicine ID</th>
+                    <th>Prescription Quantity</th>
+                    <th>Date Issued</th>
+                    <th>Date Collected</th>
                     </tr>";
                     foreach ($searchResults as $result) {
                         echo "<tr>";
                         echo "<td>" . $result['patient_id'] . "</td>";
-                        echo "<td>" . $result['first_name'] . "</td>";
-                        echo "<td>" . $result['surname'] . "</td>";
-                        echo "<td>" . $result['email'] . "</td>";
-                        echo "<td>" . $result['date_of_birth'] . "</td>";
-                        echo "<td>" . $result['address'] . "</td>";
-                        echo "<td>" . $result['city'] . "</td>";
-                        echo "<td>" . $result['postcode'] . "</td>";
+                        echo "<td>" . $result['medicine_id'] . "</td>";
+                        echo "<td>" . $result['prescription_quantity'] . "</td>";
+                        echo "<td>" . $result['date_issued'] . "</td>";
+                        echo "<td>" . $result['date_collected'] . "</td>";
                         echo "</tr>";
                     }
                     echo "</table>";

@@ -19,7 +19,7 @@
 
             <div class="search-container">
                 <form action="" method="GET">
-                    <input type="text" class="search" name="patient_id" placeholder="Search by Patient ID">
+                    <input type="number" class="search" name="patient_id" placeholder="Search by Patient ID">
                     <input type="text" class="search" name="status" placeholder="Search by Status">
                     <button id="search-button" type="submit">Search</button>
                 </form>
@@ -27,7 +27,7 @@
 
             <?php
                 if(isset($_GET['patient_id']) || isset($_GET['status'])) {
-                    include("diagnosisSearch.php");
+                    include("search/diagnosisSearch.php");
                 }
                 if (isset($searchResults) && !empty($searchResults)) {
                     echo "<table>";

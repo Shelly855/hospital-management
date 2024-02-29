@@ -21,6 +21,9 @@
             <form action="createDiagnosis.php">
                 <input type="submit" value="Create New Diagnosis" />
             </form>
+            <form action="searchForDiagnosis.php">
+                <input type="submit" value="Search Records" />
+            </form>
 
             <div class="table-container">
                 <table>

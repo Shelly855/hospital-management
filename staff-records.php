@@ -21,6 +21,9 @@
             <form action="createUser.php">
                 <input type="submit" value="Create New Staff" />
             </form>
+            <form action="searchForStaff.php">
+                <input type="submit" value="Search Records" />
+            </form>
 
             <div class="table-container">
                 <table>

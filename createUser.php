@@ -1,5 +1,9 @@
 <?php
 include_once("createRecordSql/createUserSql.php");
+$conn = mysqli_connect("localhost", "root", "", "staff_database");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $errorsid = $errorfname = $errorsurname = $erroremail = $erroruname = $errorpwd = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
 $allFields = true;
@@ -50,8 +54,19 @@ if (isset($_POST['submit'])){
     if($allFields == "yes")
     {
         $hashedPassword = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
-        $createUser = createUser();
+        $staffID = $_POST['sid'];
+        if (checkStaffIdExists($staffID, $conn)) {
+            $errorsid = "Staff ID already exists";
+        } else {
+            $createStaff = createStaff();
+        }
     }
+}
+
+function checkStaffIdExists($sid, $conn) {
+    $result = mysqli_query($conn, "SELECT * FROM staff WHERE staff_id = '$sid'");
+    return mysqli_num_rows($result) > 0;
+    return false;
 }
 ?>
 

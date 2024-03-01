@@ -1,5 +1,9 @@
 <?php
 include_once("createRecordSql/createMedicineSql.php");
+$conn = mysqli_connect("localhost", "root", "", "medicine_supply_database");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $errormid = $errormedname = $errortype = $errorquantity = $errorunit = "";
 $allFields = true;
@@ -29,8 +33,19 @@ if (isset($_POST['submit'])){
 
     if($allFields == "yes")
     {
-        $createMedicine = createMedicine();
+        $medicineID = $_POST['mid'];
+        if (checkMedicineIdExists($medicineID, $conn)) {
+            $errormid = "Medicine ID already exists";
+        } else {
+            $createMedicine = createMedicine();
+        }
     }
+}
+
+function checkMedicineIdExists($mid, $conn) {
+    $result = mysqli_query($conn, "SELECT * FROM medicine WHERE medicine_id = '$mid'");
+    return mysqli_num_rows($result) > 0;
+    return false;
 }
 ?>
 

@@ -5,6 +5,7 @@
             'Patient Records' => 'patient-records.php',
             'Diagnosis Records' => 'diagnosis-records.php',
             'Prescriptions' => 'prescriptions.php',
+            'Medicine Records' => 'medicine-records.php',
             'Lab Tests' => 'lab-tests.php',
             'Log Out' => 'logout.php'
         ),
@@ -12,6 +13,7 @@
             'Homepage' => 'index.php',
             'Prescriptions' => 'prescriptions.php',
             'Medicine Records' => 'medicine-records.php',
+            'Patient Records' => 'patient-records.php',
             'Log Out' => 'logout.php'
         ),
         'lab technician' => array(

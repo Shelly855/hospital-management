@@ -1,5 +1,9 @@
 <?php
 include_once("createRecordSql/createDiagnosisSql.php");
+$conn = mysqli_connect("localhost", "root", "", "diagnosis_database");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $errordid = $errorpid = $errordname = $errorddate = $errorstatus = "";
 $allFields = true;
@@ -28,8 +32,19 @@ if (isset($_POST['submit'])) {
     }
 
     if ($allFields && isset($_POST['dnotes'])) {
-        $createDiagnosis = createDiagnosis();
+        $diagnosisID = $_POST['did'];
+        if (checkDiagnosisIdExists($diagnosisID, $conn)) {
+            $errordid = "Diagnosis ID already exists";
+        } else {
+            $createDiagnosis = createDiagnosis();
+        }
     }
+}
+
+function checkDiagnosisIdExists($did, $conn) {
+    $result = mysqli_query($conn, "SELECT * FROM diagnoses WHERE diagnosis_id = '$did'");
+    return mysqli_num_rows($result) > 0;
+    return false;
 }
 ?>
 

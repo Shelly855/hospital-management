@@ -1,5 +1,9 @@
 <?php
 include_once("createRecordSql/createLabTestSql.php");
+$conn = mysqli_connect("localhost", "root", "", "lab_database");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $errorlid = $errorpid = $errortname = $errorreqdate = "";
 $allFields = true;
@@ -23,8 +27,19 @@ if (isset($_POST['submit'])) {
         $allFields = "no";
     }
     if ($allFields == "yes" && isset($_POST['cdate']) && isset($_POST['result']) && isset($_POST['lnotes'])) {
-        $createLabTest = createLabTest();
+        $labTestID = $_POST['lid'];
+        if (checkLabTestIdExists($labTestID, $conn)) {
+            $errorlid = "Lab Test ID already exists";
+        } else {
+            $createLabTest = createLabTest();
+        }
     }
+}
+
+function checkLabTestIdExists($lid, $conn) {
+    $result = mysqli_query($conn, "SELECT * FROM lab_tests WHERE lab_test_id = '$lid'");
+    return mysqli_num_rows($result) > 0;
+    return false;
 }
 ?>
 

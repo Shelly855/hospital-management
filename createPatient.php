@@ -1,5 +1,9 @@
 <?php
 include_once("createRecordSql/createPatientSql.php");
+$conn = mysqli_connect("localhost", "root", "", "patient_database");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $errorpid = $errorpfname = $errorpsurname = $errorpemail = $errorpdob = $erroraddress = $errorcity = $errorpostcode = "";
 $allFields = true;
@@ -41,8 +45,19 @@ if (isset($_POST['submit'])){
 
     if($allFields == "yes")
     {
-        $createPatient = createPatient();
+        $patientID = $_POST['pid'];
+        if (checkPatientIdExists($patientID, $conn)) {
+            $errorpid = "Patient ID already exists";
+        } else {
+            $createPatient = createPatient();
+        }
     }
+}
+
+function checkPatientIdExists($pid, $conn) {
+    $result = mysqli_query($conn, "SELECT * FROM patients WHERE patient_id = '$pid'");
+    return mysqli_num_rows($result) > 0;
+    return false;
 }
 ?>
 

@@ -1,5 +1,9 @@
 <?php
 include_once("createRecordSql/createPrescriptionSql.php");
+$conn = mysqli_connect("localhost", "root", "", "patient_database");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $errorpresid = $errorpid = $errormid = $errorpresquantity = $errorissued = "";
 $allFields = true;
@@ -27,8 +31,19 @@ if (isset($_POST['submit'])) {
         $allFields = "no";
     }
     if ($allFields == "yes" && isset($_POST['collected'])) {
-        $createPrescription = createPrescription();
+        $prescriptionID = $_POST['presid'];
+        if (checkPrescriptionIdExists($prescriptionID, $conn)) {
+            $errorpresid = "Prescription ID already exists";
+        } else {
+            $createPrescription = createPrescription();
+        }
     }
+}
+
+function checkprescriptionIDExists($presid, $conn) {
+    $result = mysqli_query($conn, "SELECT * FROM prescriptions WHERE prescription_id = '$presid'");
+    return mysqli_num_rows($result) > 0;
+    return false;
 }
 ?>
 

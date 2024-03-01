@@ -25,33 +25,35 @@
                 </form>
             </div>
 
-            <?php
-                if(isset($_GET['medicine_id']) || isset($_GET['medicine_name'])) {
-                    include("search/medicineSearch.php");
-                }
-                if (isset($searchResults) && !empty($searchResults)) {
-                    echo "<table>";
-                    echo "<tr>
-                    <th>Medicine ID</th>
-                    <th>Medicine Name</th>
-                    <th>Type</th>
-                    <th>Quantity in Stock</th>
-                    <th>Unit</th>
-                    </tr>";
-                    foreach ($searchResults as $result) {
-                        echo "<tr>";
-                        echo "<td>" . $result['medicine_id'] . "</td>";
-                        echo "<td>" . $result['medicine_name'] . "</td>";
-                        echo "<td>" . $result['type'] . "</td>";
-                        echo "<td>" . $result['quantity_in_stock'] . "</td>";
-                        echo "<td>" . $result['unit'] . "</td>";
-                        echo "</tr>";
+            <div class="table-container">
+                <?php
+                    if(isset($_GET['medicine_id']) || isset($_GET['medicine_name'])) {
+                        include("search/medicineSearch.php");
                     }
-                    echo "</table>";
-                } else {
-                    echo "No matching results found.";
-                }
-            ?>
+                    if (isset($searchResults) && !empty($searchResults)) {
+                        echo "<table>";
+                        echo "<tr>
+                        <th>Medicine ID</th>
+                        <th>Medicine Name</th>
+                        <th>Type</th>
+                        <th>Quantity in Stock</th>
+                        <th>Unit</th>
+                        </tr>";
+                        foreach ($searchResults as $result) {
+                            echo "<tr>";
+                            echo "<td>" . $result['medicine_id'] . "</td>";
+                            echo "<td>" . $result['medicine_name'] . "</td>";
+                            echo "<td>" . $result['type'] . "</td>";
+                            echo "<td>" . $result['quantity_in_stock'] . "</td>";
+                            echo "<td>" . $result['unit'] . "</td>";
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "No matching results found.";
+                    }
+                ?>
+            </div>
         </main>
         <?php include("includes/footer.php"); ?>
     </div>

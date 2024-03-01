@@ -12,7 +12,7 @@
     <div class="container">
         <?php include("includes/header.php"); ?>  
         <main>
-            <h1>Search For Patient</h1>
+            <h1>Search For Prescription</h1>
             <form action="prescriptions.php">
                 <input type="submit" value="Back" />
             </form>
@@ -25,33 +25,35 @@
                 </form>
             </div>
 
-            <?php
-                if(isset($_GET['patient_id']) || isset($_GET['medicine_id'])) {
-                    include("search/prescriptionSearch.php");
-                }
-                if (isset($searchResults) && !empty($searchResults)) {
-                    echo "<table>";
-                    echo "<tr>
-                    <th>Patient ID</th>
-                    <th>Medicine ID</th>
-                    <th>Prescription Quantity</th>
-                    <th>Date Issued</th>
-                    <th>Date Collected</th>
-                    </tr>";
-                    foreach ($searchResults as $result) {
-                        echo "<tr>";
-                        echo "<td>" . $result['patient_id'] . "</td>";
-                        echo "<td>" . $result['medicine_id'] . "</td>";
-                        echo "<td>" . $result['prescription_quantity'] . "</td>";
-                        echo "<td>" . $result['date_issued'] . "</td>";
-                        echo "<td>" . $result['date_collected'] . "</td>";
-                        echo "</tr>";
+            <div class="table-container">
+                <?php
+                    if(isset($_GET['patient_id']) || isset($_GET['medicine_id'])) {
+                        include("search/prescriptionSearch.php");
                     }
-                    echo "</table>";
-                } else {
-                    echo "No matching results found.";
-                }
-            ?>
+                    if (isset($searchResults) && !empty($searchResults)) {
+                        echo "<table>";
+                        echo "<tr>
+                        <th>Patient ID</th>
+                        <th>Medicine ID</th>
+                        <th>Prescription Quantity</th>
+                        <th>Date Issued</th>
+                        <th>Date Collected</th>
+                        </tr>";
+                        foreach ($searchResults as $result) {
+                            echo "<tr>";
+                            echo "<td>" . $result['patient_id'] . "</td>";
+                            echo "<td>" . $result['medicine_id'] . "</td>";
+                            echo "<td>" . $result['prescription_quantity'] . "</td>";
+                            echo "<td>" . $result['date_issued'] . "</td>";
+                            echo "<td>" . $result['date_collected'] . "</td>";
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "No matching results found.";
+                    }
+                ?>
+            </div>
         </main>
         <?php include("includes/footer.php"); ?>
     </div>

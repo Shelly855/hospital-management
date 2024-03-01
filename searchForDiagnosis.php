@@ -12,7 +12,7 @@
     <div class="container">
         <?php include("includes/header.php"); ?>  
         <main>
-            <h1>Search For Patient</h1>
+            <h1>Search For Diagnosis</h1>
             <form action="diagnosis-records.php">
                 <input type="submit" value="Back" />
             </form>
@@ -25,35 +25,37 @@
                 </form>
             </div>
 
-            <?php
-                if(isset($_GET['patient_id']) || isset($_GET['status'])) {
-                    include("search/diagnosisSearch.php");
-                }
-                if (isset($searchResults) && !empty($searchResults)) {
-                    echo "<table>";
-                    echo "<tr>
-                    <th>Diagnosis ID</th>
-                    <th>Patient ID</th>
-                    <th>Diagnosis Name</th>
-                    <th>Diagnosis Date</th>
-                    <th>Status</th>
-                    <th>Notes</th>
-                    </tr>";
-                    foreach ($searchResults as $result) {
-                        echo "<tr>";
-                        echo "<td>" . $result['diagnosis_id'] . "</td>";
-                        echo "<td>" . $result['patient_id'] . "</td>";
-                        echo "<td>" . $result['diagnosis_name'] . "</td>";
-                        echo "<td>" . $result['diagnosis_date'] . "</td>";
-                        echo "<td>" . $result['status'] . "</td>";
-                        echo "<td>" . $result['notes'] . "</td>";
-                        echo "</tr>";
+            <div class="table-container">
+                <?php
+                    if(isset($_GET['patient_id']) || isset($_GET['status'])) {
+                        include("search/diagnosisSearch.php");
                     }
-                    echo "</table>";
-                } else {
-                    echo "No matching results found.";
-                }
-            ?>
+                    if (isset($searchResults) && !empty($searchResults)) {
+                        echo "<table>";
+                        echo "<tr>
+                        <th>Diagnosis ID</th>
+                        <th>Patient ID</th>
+                        <th>Diagnosis Name</th>
+                        <th>Diagnosis Date</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                        </tr>";
+                        foreach ($searchResults as $result) {
+                            echo "<tr>";
+                            echo "<td>" . $result['diagnosis_id'] . "</td>";
+                            echo "<td>" . $result['patient_id'] . "</td>";
+                            echo "<td>" . $result['diagnosis_name'] . "</td>";
+                            echo "<td>" . $result['diagnosis_date'] . "</td>";
+                            echo "<td>" . $result['status'] . "</td>";
+                            echo "<td>" . $result['notes'] . "</td>";
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "No matching results found.";
+                    }
+                ?>
+            </div>
         </main>
         <?php include("includes/footer.php"); ?>
     </div>

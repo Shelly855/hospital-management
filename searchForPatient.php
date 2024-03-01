@@ -26,39 +26,41 @@
                 </form>
             </div>
 
-            <?php
-                if(isset($_GET['surname']) || isset($_GET['date_of_birth']) || isset($_GET['address'])) {
-                    include("search/patientSearch.php");
-                }
-                if (isset($searchResults) && !empty($searchResults)) {
-                    echo "<table>";
-                    echo "<tr>
-                    <th>Patient ID</th>
-                    <th>First Name</th>
-                    <th>Surname</th>
-                    <th>Email</th>
-                    <th>DOB</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Postcode</th>
-                    </tr>";
-                    foreach ($searchResults as $result) {
-                        echo "<tr>";
-                        echo "<td>" . $result['patient_id'] . "</td>";
-                        echo "<td>" . $result['first_name'] . "</td>";
-                        echo "<td>" . $result['surname'] . "</td>";
-                        echo "<td>" . $result['email'] . "</td>";
-                        echo "<td>" . $result['date_of_birth'] . "</td>";
-                        echo "<td>" . $result['address'] . "</td>";
-                        echo "<td>" . $result['city'] . "</td>";
-                        echo "<td>" . $result['postcode'] . "</td>";
-                        echo "</tr>";
+            <div class="table-container">
+                <?php
+                    if(isset($_GET['surname']) || isset($_GET['date_of_birth']) || isset($_GET['address'])) {
+                        include("search/patientSearch.php");
                     }
-                    echo "</table>";
-                } else {
-                    echo "No matching results found.";
-                }
-            ?>
+                    if (isset($searchResults) && !empty($searchResults)) {
+                        echo "<table>";
+                        echo "<tr>
+                        <th>Patient ID</th>
+                        <th>First Name</th>
+                        <th>Surname</th>
+                        <th>Email</th>
+                        <th>DOB</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Postcode</th>
+                        </tr>";
+                        foreach ($searchResults as $result) {
+                            echo "<tr>";
+                            echo "<td>" . $result['patient_id'] . "</td>";
+                            echo "<td>" . $result['first_name'] . "</td>";
+                            echo "<td>" . $result['surname'] . "</td>";
+                            echo "<td>" . $result['email'] . "</td>";
+                            echo "<td>" . $result['date_of_birth'] . "</td>";
+                            echo "<td>" . $result['address'] . "</td>";
+                            echo "<td>" . $result['city'] . "</td>";
+                            echo "<td>" . $result['postcode'] . "</td>";
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "No matching results found.";
+                    }
+                ?>
+            </div>
         </main>
         <?php include("includes/footer.php"); ?>
     </div>

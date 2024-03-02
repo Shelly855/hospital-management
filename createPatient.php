@@ -12,38 +12,38 @@ if (isset($_POST['submit'])){
 
     if ($_POST['pid']==""){
         $errorpid = "Patient ID is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['pfname']==""){
         $errorpfname = "First Name is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['psurname']==""){
         $errorpsurname = "Surname is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['pemail']==""){
         $errorpemail = "Email Address is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['pdob']==""){
         $errorpdob = "Date of Birth is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['address']==""){
         $erroraddress = "Address is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['city']==""){
         $errorcity = "City is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['postcode']==""){
         $errorpostcode = "Postcode is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
 
-    if($allFields == "yes")
+    if($allFields == true)
     {
         $patientID = $_POST['pid'];
         if (checkPatientIdExists($patientID, $conn)) {

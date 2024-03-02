@@ -24,11 +24,48 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
+            $errorfname = $errorsurname = $erroremail = $erroruname = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
+            $allFields = true;
+
             if (isset($_POST['submit'])) {
 
+                if ($_POST['fname']==""){
+                    $errorfname = "First name is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['surname']==""){
+                    $errorsurname = "Surname is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['email']==""){
+                    $erroremail = "Email Address is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['uname']==""){
+                    $erroruname = "Username is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['dob']==""){
+                    $errordob = "Date of Birth is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['hdate']==""){
+                    $errorhdate = "Hire Date is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['department']==""){
+                    $errordepartment = "Department Name is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['salary']==""){
+                    $errorsalary = "Salary is mandatory";
+                    $allFields = false;
+                }
+
+                if ($allFields) {
                 $sql = "UPDATE Staff SET first_name = ?, surname = ?, email = ?, username = ?, date_of_birth = ?, job_role = ?, hire_date = ?, department_name = ?, salary = ? WHERE staff_id = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ssssssssdi", $_POST['fname'], $_POST['surname'], $_POST['email'], $_POST['username'], $_POST['dob'], $_POST['job'], $_POST['hdate'], $_POST['department'], $_POST['salary'], $_GET['sid']);
+                $stmt->bind_param("ssssssssdi", $_POST['fname'], $_POST['surname'], $_POST['email'], $_POST['uname'], $_POST['dob'], $_POST['job'], $_POST['hdate'], $_POST['department'], $_POST['salary'], $_GET['sid']);
                 
                 $stmt->execute();
                 
@@ -37,6 +74,7 @@
                 header('Location: staff-records.php');
                 exit();
             }
+        }
 
             $sql = "SELECT * FROM Staff WHERE staff_id=?";
             $stmt = $conn->prepare($sql);
@@ -61,18 +99,23 @@
 
                 <label>First Name</label>
                 <input type="text" name="fname" value="<?php echo $arrayResult[0]['first_name']; ?>">
+                <span class="blank-notify"><?php echo $errorfname; ?></span>
 
                 <label>Surname</label>
                 <input type="text" name="surname" value="<?php echo $arrayResult[0]['surname']; ?>">
+                <span class="blank-notify"><?php echo $errorsurname; ?></span>
 
                 <label>Email</label>
                 <input type="text" name="email" value="<?php echo $arrayResult[0]['email']; ?>">
+                <span class="blank-notify"><?php echo $erroremail; ?></span>
 
                 <label>Username</label>
-                <input type="text" name="username" value="<?php echo $arrayResult[0]['username']; ?>">
+                <input type="text" name="uname" value="<?php echo $arrayResult[0]['username']; ?>">
+                <span class="blank-notify"><?php echo $erroruname; ?></span>
 
                 <label>Date of Birth</label>
                 <input type="date" name="dob" value="<?php echo $arrayResult[0]['date_of_birth']; ?>">
+                <span class="blank-notify"><?php echo $errordob; ?></span>
 
                 <label>Job Role</label>
                 <select name="job">
@@ -84,13 +127,15 @@
 
                 <label>Hire Date</label>
                 <input type="date" name="hdate" value="<?php echo $arrayResult[0]['hire_date']; ?>">
+                <span class="blank-notify"><?php echo $errorhdate; ?></span>
 
                 <label>Department Name</label>
                 <input type="text" name="department" value="<?php echo $arrayResult[0]['department_name']; ?>">
+                <span class="blank-notify"><?php echo $errordepartment; ?></span>
 
-                
                 <label>Annual Salary</label>
                 <input type="number" name="salary" value="<?php echo $arrayResult[0]['salary']; ?>">
+                <span class="blank-notify"><?php echo $errorsalary; ?></span>
 
                 <input type="submit" name="submit" value="Update"><a href="staff-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
             </form>

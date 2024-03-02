@@ -24,20 +24,38 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
+            $errorpid = $errortname = $errorreqdate = "";
+            $allFields = true;
+            
             if (isset($_POST['submit'])) {
 
-                $sql = "UPDATE Lab_Tests SET patient_id = ?, lab_test_name = ?, date_requested = ?, date_completed = ?, result = ?, notes = ? WHERE lab_test_id = ?";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("isssssi", $_POST['pid'], $_POST['tname'], $_POST['reqdate'], $_POST['cdate'], $_POST['result'], $_POST['lnotes'], $_GET['lid']);
-                
-                $stmt->execute();
-                
-                $stmt->close();
-                
-                header('Location: lab-tests.php');
-                exit();
+                if ($_POST['pid'] == "") {
+                    $errorpid = "Patient ID is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['tname'] == "") {
+                    $errortname = "Test Name is mandatory";
+                    $allFields = false;
+                }
+                if ($_POST['reqdate'] == "") {
+                    $errorreqdate = "Date Requested is mandatory";
+                    $allFields = false;
+                }
+            
+                if ($allFields) {
+                    $sql = "UPDATE Lab_Tests SET patient_id = ?, lab_test_name = ?, date_requested = ?, date_completed = ?, result = ?, notes = ? WHERE lab_test_id = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("isssssi", $_POST['pid'], $_POST['tname'], $_POST['reqdate'], $_POST['cdate'], $_POST['result'], $_POST['lnotes'], $_GET['lid']);
+                    
+                    $stmt->execute();
+                    
+                    $stmt->close();
+                    
+                    header('Location: lab-tests.php');
+                    exit();
+                }
             }
-
+                
             $sql = "SELECT * FROM Lab_Tests WHERE lab_test_id=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $_GET['lid']);
@@ -61,12 +79,15 @@
 
                 <label>Patient ID</label>
                 <input type="number" name="pid" value="<?php echo $arrayResult[0]['patient_id']; ?>">
+                <span class="blank-notify"><?php echo $errorpid; ?></span>
 
                 <label>Test Name</label>
                 <input type="text" name="tname" value="<?php echo $arrayResult[0]['lab_test_name']; ?>">
+                <span class="blank-notify"><?php echo $errortname; ?></span>
 
                 <label>Date Requested</label>
                 <input type="date" name="reqdate" value="<?php echo $arrayResult[0]['date_requested']; ?>">
+                <span class="blank-notify"><?php echo $errorreqdate; ?></span>
 
                 <label>Date Completed</label>
                 <input type="date" name="cdate" value="<?php echo $arrayResult[0]['date_completed']; ?>">

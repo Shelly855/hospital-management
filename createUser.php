@@ -12,46 +12,46 @@ if (isset($_POST['submit'])){
 
     if ($_POST['sid']==""){
         $errorsid = "Staff ID is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['fname']==""){
         $errorfname = "First name is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['surname']==""){
         $errorsurname = "Surname is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['email']==""){
         $erroremail = "Email Address is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['uname']==""){
         $erroruname = "Username is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['pwd']==""){
         $errorpwd = "Password is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['dob']==""){
         $errordob = "Date of Birth is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['hdate']==""){
         $errorhdate = "Hire Date is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['department']==""){
         $errordepartment = "Department Name is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['salary']==""){
         $errorsalary = "Salary is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
 
-    if($allFields == "yes")
+    if($allFields == true)
     {
         $hashedPassword = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
         $staffID = $_POST['sid'];

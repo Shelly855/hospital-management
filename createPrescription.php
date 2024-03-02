@@ -12,25 +12,25 @@ if (isset($_POST['submit'])) {
 
     if ($_POST['presid']==""){
         $errorpresid = "Prescription ID is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['pid']==""){
         $errorpid = "Patient ID is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['mid']==""){
         $errormid = "Medicine ID is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['presquantity']==""){
         $errorpresquantity = "Quantity is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['issued']==""){
         $errorissued = "Issued Date is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
-    if ($allFields == "yes" && isset($_POST['collected'])) {
+    if ($allFields == true && isset($_POST['collected'])) {
         $prescriptionID = $_POST['presid'];
         if (checkPrescriptionIdExists($prescriptionID, $conn)) {
             $errorpresid = "Prescription ID already exists";
@@ -75,7 +75,7 @@ function checkprescriptionIDExists($presid, $conn) {
 
                 <label>Medicine ID</label>
                 <input type="number" name = "mid">
-                <span class="blank-notify"><?php echo $errorpid; ?></span>
+                <span class="blank-notify"><?php echo $errormid; ?></span>
 
                 <label>Prescription Quantity</label>
                 <input type="number" name = "presquantity">

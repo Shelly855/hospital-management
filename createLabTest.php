@@ -12,21 +12,21 @@ if (isset($_POST['submit'])) {
 
     if ($_POST['lid']==""){
         $errorlid = "Lab Test ID is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['pid']==""){
         $errorpid = "Patient ID is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['tname']==""){
         $errortname = "Test Name is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['reqdate']==""){
         $errorreqdate = "Date Requested is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
-    if ($allFields == "yes" && isset($_POST['cdate']) && isset($_POST['result']) && isset($_POST['lnotes'])) {
+    if ($allFields == true && isset($_POST['cdate']) && isset($_POST['result']) && isset($_POST['lnotes'])) {
         $labTestID = $_POST['lid'];
         if (checkLabTestIdExists($labTestID, $conn)) {
             $errorlid = "Lab Test ID already exists";

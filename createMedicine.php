@@ -12,26 +12,26 @@ if (isset($_POST['submit'])){
 
     if ($_POST['mid']==""){
         $errormid = "Medicine ID is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['medname']==""){
         $errormedname = "Medicine Name is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['type']==""){
         $errortype = "Medicine Type is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['quantity']==""){
         $errorquantity = "Quantity in Stock is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
     if ($_POST['unit']==""){
         $errorunit = "Unit is mandatory";
-        $allFields = "no";
+        $allFields = false;
     }
 
-    if($allFields == "yes")
+    if($allFields == true)
     {
         $medicineID = $_POST['mid'];
         if (checkMedicineIdExists($medicineID, $conn)) {

@@ -70,7 +70,6 @@
 
                 <label>Diagnosis Status</label>
                 <select name="status">
-                    <option value="">Select Status</option>
                     <option value="active" <?php echo ($arrayResult[0]['status']=="active") ? "selected" : ""; ?>>Active</option>
                     <option value="chronic" <?php echo ($arrayResult[0]['status']=="chronic") ? "selected" : ""; ?>>Chronic</option>
                     <option value="resolved" <?php echo ($arrayResult[0]['status']=="resolved") ? "selected" : ""; ?>>Resolved</option>

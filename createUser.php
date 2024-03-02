@@ -5,7 +5,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$errorsid = $errorfname = $errorsurname = $erroremail = $erroruname = $errorpwd = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
+$errorsid = $errorfname = $errorsurname = $erroremail = $erroruname = $errorpwd = $errordob = $errorjob = $errorhdate = $errordepartment = $errorsalary = "";
 $allFields = true;
 
 if (isset($_POST['submit'])){
@@ -36,6 +36,10 @@ if (isset($_POST['submit'])){
     }
     if ($_POST['dob']==""){
         $errordob = "Date of Birth is mandatory";
+        $allFields = false;
+    }
+    if ($_POST['job']==""){
+        $errorjob = "Job Role is mandatory";
         $allFields = false;
     }
     if ($_POST['hdate']==""){
@@ -118,11 +122,13 @@ function checkStaffIdExists($sid, $conn) {
 
                 <label>Job Role</label>
                 <select name="job">
+                    <option value="">Select Role</option>
                     <option value="admin">Admin</option>
                     <option value="doctor">Doctor</option>
                     <option value="pharmacist">Pharmacist</option>
                     <option value="lab technician">Lab Technician</option>
                 </select>
+                <span class="blank-notify"><?php echo $errorjob; ?></span>
 
                 <label>Hire Date</label>
                 <input type="date" name = "hdate">

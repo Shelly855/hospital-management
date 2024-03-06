@@ -90,7 +90,7 @@
                 <span class="blank-notify"><?php echo $errormid; ?></span>
 
                 <label>Prescription Quantity</label>
-                <input type="text" name="presquantity" value="<?php echo $arrayResult[0]['prescription_quantity']; ?>">
+                <input type="number" name="presquantity" value="<?php echo $arrayResult[0]['prescription_quantity']; ?>">
                 <span class="blank-notify"><?php echo $errorpresquantity; ?></span>
 
                 <label>Date Issued</label>
@@ -98,7 +98,7 @@
                 <span class="blank-notify"><?php echo $errorissued; ?></span>
 
                 <label>Date Collected</label>
-                <input type="text" name="collected" value="<?php echo $arrayResult[0]['date_collected']; ?>">
+                <input type="date" name="collected" value="<?php echo $arrayResult[0]['date_collected']; ?>">
 
                 <input type="submit" name="submit" value="Update"><a href="prescriptions.php" style="font-weight: bold; padding-left: 30px;">Back</a>
             </form>

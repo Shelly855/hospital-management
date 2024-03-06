@@ -5,9 +5,4 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 define('DB_NAME', 'staff_database');
 
-$mysqli = new mysqli("localhost", "root", "", "staff_database");
-
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
 ?>

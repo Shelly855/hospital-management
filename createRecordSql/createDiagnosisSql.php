@@ -16,7 +16,14 @@ function createDiagnosis(){
         die("Error in prepare statement: " . $db->error);
     }
 
-    $stmt->bind_param('iissss', $_POST['did'], $_POST['pid'], $_POST['dname'], $_POST['ddate'], $_POST['status'], $_POST['dnotes']);
+    $stmt->bind_param('iissss', $did, $pid, $dname, $ddate, $status, $dnotes);
+
+    $did = (int)$_POST['did'];
+    $pid = (int)$_POST['pid'];
+    $dname = $_POST['dname'];
+    $ddate = $_POST['ddate'];
+    $status = $_POST['status'];
+    $dnotes = $_POST['dnotes'];
 
     $result = $stmt->execute();
 
@@ -25,11 +32,7 @@ function createDiagnosis(){
         header("Location: createDiagnosisSuccess.php?createDiagnosis=success");
         exit();
     } else {
-        die("Error in execute statement: " . $stmt->error);
+        error_log("Error in executing statement: " . $stmt->error);
+        die("Error in creating diagnosis - try again later.");
     }
-
-    $stmt->close();
-    $db->close();
-
-    return $created;
 }

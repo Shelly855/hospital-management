@@ -8,8 +8,8 @@ $conditions = [];
 $parameters = [];
 
 if (!empty($searchPatientID)) {
-    $conditions[] = "patient_id LIKE ?";
-    $parameters[] = "%" . $searchPatientID . "%";
+    $conditions[] = "patient_id = ?";
+    $parameters[] = $searchPatientID;
 }
 if (!empty($searchMedicineID)) {
     $conditions[] = "medicine_id = ?";
@@ -34,8 +34,14 @@ if ($stmt) {
     $result = $stmt->get_result();
 
     $searchResults = [];
-    while ($row = $result->fetch_assoc()) {
-        $searchResults[] = $row;
+
+    if ($result) {
+        $searchResults = [];
+        while ($row = $result->fetch_assoc()) {
+            $searchResults[] = $row;
+        }
+    } else {
+        echo "Error in fetching results: " . $stmt->error;
     }
     
     $stmt->close();

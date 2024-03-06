@@ -1,13 +1,9 @@
 <?php
+require_once('includes/patient-config.php');
 
 function getPrescriptions(){
 
-    $hostname = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'patient_database';
-
-    $conn = new mysqli("localhost", "root", "", "patient_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -20,6 +16,10 @@ function getPrescriptions(){
 
     $result = $conn->query($sql);
 
+    if (!$result) {
+        die("Query failed: " . $conn->error);
+    }
+
     $prescriptions = [];
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -31,3 +31,4 @@ function getPrescriptions(){
 
     return $prescriptions;
 }
+?>

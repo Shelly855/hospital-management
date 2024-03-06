@@ -1,13 +1,9 @@
 <?php
+require_once('includes/diagnosis-config.php');
 
 function getDiagnoses(){
 
-    $hostname = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'diagnosis_database';
-
-    $conn = new mysqli("localhost", "root", "", "diagnosis_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -18,6 +14,10 @@ function getDiagnoses(){
             INNER JOIN patient_database.Patients pa ON d.patient_id = pa.patient_id";
 
     $result = $conn->query($sql);
+
+    if (!$result) {
+        die("Query failed: " . $conn->error);
+    }
 
     $diagnoses = [];
     if ($result->num_rows > 0) {
@@ -30,3 +30,4 @@ function getDiagnoses(){
 
     return $diagnoses;
 }
+?>

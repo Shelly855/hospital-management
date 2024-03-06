@@ -1,13 +1,9 @@
 <?php
+require_once('includes/patient-config.php');
 
 function getPatients(){
 
-    $hostname = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'patient_database';
-
-    $conn = new mysqli("localhost", "root", "", "patient_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -16,14 +12,19 @@ function getPatients(){
     $sql = "SELECT * FROM Patients";
     $result = $conn->query($sql);
 
-    $arrayResult = [];
+    if (!$result) {
+        die("Query failed: " . $conn->error);
+    }
+
+    $patients = [];
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $arrayResult[] = $row;
+            $patients[] = $row;
         }
     }
 
     $conn->close();
 
-    return $arrayResult;
+    return $patients;
 }
+?>

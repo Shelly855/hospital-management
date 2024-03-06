@@ -1,6 +1,8 @@
 <?php
 function verifyUsers () {
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
     if (!isset($_POST['username']) || !isset($_POST['password'])) {
         return array();

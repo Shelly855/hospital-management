@@ -9,8 +9,8 @@ $conditions = [];
 $parameters = [];
 
 if (!empty($searchSurname)) {
-    $conditions[] = "surname LIKE ?";
-    $parameters[] = "%" . $searchSurname . "%";
+    $conditions[] = "surname = ?";
+    $parameters[] = $searchSurname;
 }
 if (!empty($searchDOB)) {
     $conditions[] = "date_of_birth = ?";
@@ -18,7 +18,7 @@ if (!empty($searchDOB)) {
 }
 if (!empty($searchAddress)) {
     $conditions[] = "address LIKE ?";
-    $parameters[] = "%" . $searchAddress . "%";
+    $parameters[] = "%$searchAddress%";
 }
 
 $sql = "SELECT * FROM patients";
@@ -39,8 +39,14 @@ if ($stmt) {
     $result = $stmt->get_result();
 
     $searchResults = [];
-    while ($row = $result->fetch_assoc()) {
-        $searchResults[] = $row;
+
+    if ($result) {
+        $searchResults = [];
+        while ($row = $result->fetch_assoc()) {
+            $searchResults[] = $row;
+        }
+    } else {
+        echo "Error in fetching results: " . $stmt->error;
     }
     
     $stmt->close();

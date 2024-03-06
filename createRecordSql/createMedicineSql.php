@@ -16,20 +16,22 @@ function createMedicine(){
         die("Error in prepare statement: " . $db->error);
     }
 
-    $stmt->bind_param('issds', $_POST['mid'], $_POST['medname'], $_POST['type'], $_POST['quantity'], $_POST['unit']);
+    $stmt->bind_param('issds', $mid, $medname, $type, $quantity, $unit);
+
+    $mid = (int)$_POST['mid'];
+    $medname = $_POST['medname'];
+    $type = $_POST['type'];
+    $quantity = (double)$_POST['quantity'];
+    $unit = $_POST['unit'];
 
     $result = $stmt->execute();
 
     if($result){
         $created = true;
-        header("Location: createMedicineSuccess.php??createMedicine=success");
+        header("Location: createMedicineSuccess.php?createMedicine=success");
         exit();
     } else {
-        die("Error in execute statement: " . $stmt->error);
+        error_log("Error in executing statement: " . $stmt->error);
+        die("Error in creating medicine record - try again later.");
     }
-
-    $stmt->close();
-    $db->close();
-
-    return $created;
 }

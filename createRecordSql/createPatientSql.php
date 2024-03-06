@@ -16,20 +16,25 @@ function createPatient(){
         die("Error in prepare statement: " . $db->error);
     }
 
-    $stmt->bind_param('isssssss', $_POST['pid'], $_POST['pfname'], $_POST['psurname'], $_POST['pemail'], $_POST['pdob'], $_POST['address'], $_POST['city'], $_POST['postcode']);
+    $stmt->bind_param('isssssss', $pid, $pfname, $psurname, $pemail, $pdob, $address, $city, $postcode);
+
+    $pid = (int)$_POST['pid'];
+    $pfname = $_POST['pfname'];
+    $psurname = $_POST['psurname'];
+    $pemail = $_POST['pemail'];
+    $pdob = $_POST['pdob'];
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $postcode = $_POST['postcode'];
 
     $result = $stmt->execute();
 
     if($result){
         $created = true;
-        header("Location: createPatientSuccess.php??createPatient=success");
+        header("Location: createPatientSuccess.php?createPatient=success");
         exit();
     } else {
-        die("Error in execute statement: " . $stmt->error);
+        error_log("Error in executing statement: " . $stmt->error);
+        die("Error in creating patient record - try again later.");
     }
-
-    $stmt->close();
-    $db->close();
-
-    return $created;
 }

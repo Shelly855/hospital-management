@@ -1,13 +1,9 @@
 <?php
+require_once('includes/lab-test-config.php');
 
 function getLabTests(){
 
-    $hostname = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'lab_database';
-
-    $conn = new mysqli("localhost", "root", "", "lab_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -18,6 +14,10 @@ function getLabTests(){
             INNER JOIN patient_database.patients pa ON l.patient_id = pa.patient_id";
 
     $result = $conn->query($sql);
+
+    if (!$result) {
+        die("Query failed: " . $conn->error);
+    }
 
     $labtests = [];
     if ($result->num_rows > 0) {
@@ -30,3 +30,4 @@ function getLabTests(){
 
     return $labtests;
 }
+?>

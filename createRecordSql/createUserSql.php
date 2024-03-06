@@ -18,7 +18,19 @@ function createUser(){
         die("Error in prepare statement: " . $db->error);
     }
 
-    $stmt->bind_param('isssssssssd', $_POST['sid'], $_POST['fname'], $_POST['surname'], $_POST['email'], $_POST['uname'], $_POST['pwd'], $_POST['dob'], $_POST['job'], $_POST['hdate'], $_POST['department'], $_POST['salary']);
+    $stmt->bind_param('isssssssssd', $sid, $fname, $surname, $email, $uname, $pwd, $dob, $job, $hdate, $department, $salary);
+
+    $sid = (int)$_POST['sid'];
+    $fname = $_POST['fname'];
+    $surname = $_POST['surname'];
+    $email = $_POST['email'];
+    $uname = $_POST['uname'];
+    $pwd = $_POST['pwd'];
+    $dob = $_POST['dob'];
+    $job = $_POST['job'];
+    $hdate = $_POST['hdate'];
+    $department = $_POST['department'];
+    $salary = (double)$_POST['salary'];
 
     $result = $stmt->execute();
 
@@ -27,11 +39,7 @@ function createUser(){
         header("Location: createUserSuccess.php?createUser=success");
         exit();
     } else {
-        die("Error in execute statement: " . $stmt->error);
+        error_log("Error in executing statement: " . $stmt->error);
+        die("Error in creating staff user - try again later.");
     }
-
-    $stmt->close();
-    $db->close();
-
-    return $created;
 }

@@ -8,12 +8,12 @@ $conditions = [];
 $parameters = [];
 
 if (!empty($searchMedicineID)) {
-    $conditions[] = "medicine_id LIKE ?";
-    $parameters[] = "%" . $searchMedicineID . "%";
+    $conditions[] = "medicine_id = ?";
+    $parameters[] = $searchMedicineID;
 }
 if (!empty($searchMedicineName)) {
     $conditions[] = "medicine_name LIKE ?";
-    $parameters[] = $searchMedicineName;
+    $parameters[] = "%$searchMedicineName%";
 }
 
 $sql = "SELECT * FROM medicine";
@@ -34,13 +34,20 @@ if ($stmt) {
     $result = $stmt->get_result();
 
     $searchResults = [];
-    while ($row = $result->fetch_assoc()) {
-        $searchResults[] = $row;
+    
+    if ($result) {
+        $searchResults = [];
+        while ($row = $result->fetch_assoc()) {
+            $searchResults[] = $row;
+        }
+    } else {
+        echo "Error in fetching results: " . $stmt->error;
     }
     
     $stmt->close();
 } else {
-    echo "Error in preparing SQL statement: " . $mysqli->error;
+    error_log("Error in preparing SQL statement: " . $mysqli->error);
+    echo "An error has occurred.";
 }
 
 $mysqli->close();

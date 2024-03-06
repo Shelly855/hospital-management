@@ -1,17 +1,9 @@
 <?php
 require_once("checkUserLogin.php");
 
-$nameErr = $pwderr = $invalidMesg = "";
+$invalidMesg = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    if (empty($_POST["username"])) {
-        $nameErr = "Username is required";
-    }
-
-    if (empty($_POST["password"])) {
-        $pwderr = "Password is required";
-    }
 
     if (!empty($_POST['username']) && !empty($_POST["password"])) {
         $array_user = verifyUsers();

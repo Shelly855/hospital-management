@@ -16,7 +16,14 @@ function createPrescription(){
         die("Error in prepare statement: " . $db->error);
     }
 
-    $stmt->bind_param('iiidss', $_POST['presid'], $_POST['pid'], $_POST['mid'], $_POST['presquantity'], $_POST['issued'], $_POST['collected']);
+    $stmt->bind_param('iiidss', $presid, $pid, $mid, $presquantity, $issued, $collected);
+
+    $presid = (int)$_POST['presid'];
+    $pid = (int)$_POST['pid'];
+    $mid = (int)$_POST['mid'];
+    $presquantity = (double)$_POST['presquantity'];
+    $issued = $_POST['issued'];
+    $collected = $_POST['collected'];
 
     $result = $stmt->execute();
 
@@ -25,11 +32,7 @@ function createPrescription(){
         header("Location: createPrescriptionSuccess.php?createPrescription=success");
         exit();
     } else {
-        die("Error in execute statement: " . $stmt->error);
+        error_log("Error in executing statement: " . $stmt->error);
+        die("Error in creating prescription - try again later.");
     }
-
-    $stmt->close();
-    $db->close();
-
-    return $created;
 }

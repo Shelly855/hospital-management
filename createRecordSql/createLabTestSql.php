@@ -16,7 +16,15 @@ function createLabTest(){
         die("Error in prepare statement: " . $db->error);
     }
 
-    $stmt->bind_param('iisssss', $_POST['lid'], $_POST['pid'], $_POST['tname'], $_POST['reqdate'], $_POST['cdate'], $_POST['result'], $_POST['lnotes']);
+    $stmt->bind_param('iisssss', $lid, $pid, $tname, $reqdate, $cdate, $result, $lnotes);
+
+    $lid = (int)$_POST['lid'];
+    $pid = (int)$_POST['pid'];
+    $tname = $_POST['tname'];
+    $reqdate = $_POST['reqdate'];
+    $cdate = $_POST['cdate'];
+    $result = $_POST['result'];
+    $lnotes = $_POST['lnotes'];
 
     $result = $stmt->execute();
 
@@ -25,11 +33,7 @@ function createLabTest(){
         header("Location: createLabTestSuccess.php?createLabTest=success");
         exit();
     } else {
-        die("Error in execute statement: " . $stmt->error);
+        error_log("Error in executing statement: " . $stmt->error);
+        die("Error in creating lab test - try again later.");
     }
-
-    $stmt->close();
-    $db->close();
-
-    return $created;
 }

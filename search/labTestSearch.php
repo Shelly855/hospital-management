@@ -9,11 +9,11 @@ $parameters = [];
 
 if (!empty($searchPatientID)) {
     $conditions[] = "patient_id LIKE ?";
-    $parameters[] = "%" . $searchPatientID . "%";
+    $parameters[] = "%$searchPatientID%";
 }
 if (!empty($searchLabTestName)) {
     $conditions[] = "lab_test_name LIKE ?";
-    $parameters[] = $searchLabTestName;
+    $parameters[] = "%$searchLabTestName%";
 }
 
 $sql = "SELECT * FROM lab_tests";
@@ -34,8 +34,14 @@ if ($stmt) {
     $result = $stmt->get_result();
 
     $searchResults = [];
-    while ($row = $result->fetch_assoc()) {
-        $searchResults[] = $row;
+    
+    if ($result) {
+        $searchResults = [];
+        while ($row = $result->fetch_assoc()) {
+            $searchResults[] = $row;
+        }
+    } else {
+        echo "Error in fetching results: " . $stmt->error;
     }
     
     $stmt->close();

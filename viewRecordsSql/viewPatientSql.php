@@ -27,4 +27,3 @@ function getPatients(){
 
     return $patients;
 }
-?>

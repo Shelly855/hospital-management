@@ -1,19 +1,20 @@
 <?php
+require_once('includes/patient-config.php');
 
 function createPatient(){
     $created = false;
 
-    $db = new mysqli("localhost", "root", "", "patient_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
     $sql = 'INSERT INTO patients(patient_id, first_name, surname, email, date_of_birth, address, city, postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-    $stmt = $db->prepare($sql);
+    $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
-        die("Error in prepare statement: " . $db->error);
+        die("Error in prepare statement: " . $conn->error);
     }
 
     $stmt->bind_param('isssssss', $pid, $pfname, $psurname, $pemail, $pdob, $address, $city, $postcode);

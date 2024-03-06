@@ -1,19 +1,20 @@
 <?php
+require_once('includes/lab-test-config.php');
 
 function createLabTest(){
     $created = false;
 
-    $db = new mysqli("localhost", "root", "", "lab_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
     $sql = 'INSERT INTO lab_tests(lab_test_id, patient_id, lab_test_name, date_requested, date_completed, result, notes) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    $stmt = $db->prepare($sql);
+    $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
-        die("Error in prepare statement: " . $db->error);
+        die("Error in prepare statement: " . $conn->error);
     }
 
     $stmt->bind_param('iisssss', $lid, $pid, $tname, $reqdate, $cdate, $result, $lnotes);

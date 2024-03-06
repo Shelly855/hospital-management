@@ -30,4 +30,3 @@ function getDiagnoses(){
 
     return $diagnoses;
 }
-?>

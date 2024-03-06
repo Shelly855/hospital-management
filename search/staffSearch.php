@@ -60,5 +60,4 @@ if ($stmt) {
 }
 
 $mysqli->close();
-?>
 

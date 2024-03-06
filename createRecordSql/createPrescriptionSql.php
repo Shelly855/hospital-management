@@ -1,19 +1,20 @@
 <?php
+require_once('includes/patient-config.php');
 
 function createPrescription(){
     $created = false;
 
-    $db = new mysqli("localhost", "root", "", "patient_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
     $sql = 'INSERT INTO prescriptions(prescription_id, patient_id, medicine_id, prescription_quantity, date_issued, date_collected) VALUES (?, ?, ?, ?, ?, ?)';
-    $stmt = $db->prepare($sql);
+    $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
-        die("Error in prepare statement: " . $db->error);
+        die("Error in prepare statement: " . $conn->error);
     }
 
     $stmt->bind_param('iiidss', $presid, $pid, $mid, $presquantity, $issued, $collected);

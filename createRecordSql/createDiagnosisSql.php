@@ -1,19 +1,20 @@
 <?php
+require_once('includes/diagnosis-config.php');
 
 function createDiagnosis(){
     $created = false;
 
-    $db = new mysqli("localhost", "root", "", "diagnosis_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
     $sql = 'INSERT INTO diagnoses(diagnosis_id, patient_id, diagnosis_name, diagnosis_date, status, notes) VALUES (?, ?, ?, ?, ?, ?)';
-    $stmt = $db->prepare($sql);
+    $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
-        die("Error in prepare statement: " . $db->error);
+        die("Error in prepare statement: " . $conn->error);
     }
 
     $stmt->bind_param('iissss', $did, $pid, $dname, $ddate, $status, $dnotes);

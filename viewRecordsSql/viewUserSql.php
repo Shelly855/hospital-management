@@ -27,5 +27,4 @@ function getUsers(){
 
     return $staff;
 }
-?>
 

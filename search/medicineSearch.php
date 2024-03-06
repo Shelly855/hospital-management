@@ -34,7 +34,7 @@ if ($stmt) {
     $result = $stmt->get_result();
 
     $searchResults = [];
-    
+
     if ($result) {
         $searchResults = [];
         while ($row = $result->fetch_assoc()) {
@@ -51,5 +51,4 @@ if ($stmt) {
 }
 
 $mysqli->close();
-?>
 

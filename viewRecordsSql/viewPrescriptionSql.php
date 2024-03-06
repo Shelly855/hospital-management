@@ -31,4 +31,3 @@ function getPrescriptions(){
 
     return $prescriptions;
 }
-?>

@@ -62,7 +62,7 @@ if (isset($_POST['submit'])){
         if (checkStaffIdExists($staffID, $conn)) {
             $errorsid = "Staff ID already exists";
         } else {
-            $createStaff = createStaff();
+            $createUser = createUser();
         }
     }
 }

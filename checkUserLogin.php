@@ -1,4 +1,6 @@
 <?php
+require_once('includes/staff-config.php');
+
 function verifyUsers () {
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -8,14 +10,14 @@ function verifyUsers () {
         return array();
     }
 
-    $mysqli = new mysqli("localhost", "root", "", "staff_database");
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    if ($mysqli->connect_errno) {
-        echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
         return array();
     }
 
-    $stmt = $mysqli->prepare('SELECT username, staff_id, first_name, job_role FROM Staff WHERE username=? AND password=?');
+    $stmt = $conn->prepare('SELECT username, staff_id, first_name, job_role FROM Staff WHERE username=? AND password=?');
 
     $stmt->bind_param('ss', $_POST['username'], $_POST['password']);
 
@@ -35,7 +37,7 @@ function verifyUsers () {
     }
 
     $stmt->close();
-    $mysqli->close();
+    $conn->close();
 
     return $rows_array;
 }

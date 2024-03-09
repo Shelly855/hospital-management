@@ -57,7 +57,6 @@ if (isset($_POST['submit'])){
 function checkPatientIdExists($pid, $conn) {
     $result = mysqli_query($conn, "SELECT * FROM patients WHERE patient_id = '$pid'");
     return mysqli_num_rows($result) > 0;
-    return false;
 }
 ?>
 

@@ -6,7 +6,7 @@
     <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
     <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
     <script src="javascript/main.js" defer></script>
-    <title>Creation Successful</title>
+    <title><?php echo $message; ?></title>
 </head>
 <body>
     <div class="container">
@@ -18,7 +18,7 @@
             $message = ($result) ? "Patient Created Successfully!" : "Patient Creation Failed!";
         ?>  
         <main>
-            <h1>Patient Created Successfully!</h1>
+            <h1><?php echo $message; ?></h1>
             <form action="patient-records.php">
                 <input type="submit" value="Back" />
             </form>

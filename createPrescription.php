@@ -40,10 +40,9 @@ if (isset($_POST['submit'])) {
     }
 }
 
-function checkprescriptionIDExists($presid, $conn) {
+function checkPrescriptionIdExists($presid, $conn) {
     $result = mysqli_query($conn, "SELECT * FROM prescriptions WHERE prescription_id = '$presid'");
     return mysqli_num_rows($result) > 0;
-    return false;
 }
 ?>
 

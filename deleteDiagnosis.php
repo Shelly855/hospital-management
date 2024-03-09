@@ -1,3 +1,6 @@
+<?php
+require_once('includes/diagnosis-config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +15,8 @@
 <div class="container">
         <?php
             include("includes/header.php");
-
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "diagnosis_database";
-
-            $conn = new mysqli("localhost", "root", "", "diagnosis_database");
+     
+            $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
@@ -68,7 +66,7 @@
                 <label><?php echo $arrayResult[0][4] ?></label><br>
                 <form method="post">
                      <input type="hidden" name="did" value = "<?php echo $_GET['did'] ?>"><br>
-                    <input type="submit" value="Delete" name="delete"><a href="diagnosis-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                    <input type="submit" value="Delete" name="delete"><a href="diagnosis-records.php" class="back-button">Back</a>
                 </form>
         </main>
         <?php

@@ -39,7 +39,6 @@ if (isset($_POST['submit'])) {
 function checkLabTestIdExists($lid, $conn) {
     $result = mysqli_query($conn, "SELECT * FROM lab_tests WHERE lab_test_id = '$lid'");
     return mysqli_num_rows($result) > 0;
-    return false;
 }
 ?>
 

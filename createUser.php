@@ -70,7 +70,6 @@ if (isset($_POST['submit'])){
 function checkStaffIdExists($sid, $conn) {
     $result = mysqli_query($conn, "SELECT * FROM staff WHERE staff_id = '$sid'");
     return mysqli_num_rows($result) > 0;
-    return false;
 }
 ?>
 

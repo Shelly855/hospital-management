@@ -44,7 +44,6 @@ if (isset($_POST['submit'])) {
 function checkDiagnosisIdExists($did, $conn) {
     $result = mysqli_query($conn, "SELECT * FROM diagnoses WHERE diagnosis_id = '$did'");
     return mysqli_num_rows($result) > 0;
-    return false;
 }
 ?>
 

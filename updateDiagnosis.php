@@ -1,3 +1,6 @@
+<?php
+    require_once('includes/diagnosis-config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,26 +15,18 @@
     <div class="container">
         <?php
         include("includes/header.php");
+
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "diagnosis_database";
-
-            $conn = new mysqli("localhost", "root", "", "diagnosis_database");
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
             if (isset($_POST['submit'])) {
-
                 $sql = "UPDATE Diagnoses SET patient_id = ?, diagnosis_name = ?, diagnosis_date = ?, status = ?, notes = ? WHERE diagnosis_id = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("issssi", $_POST['pid'], $_POST['dname'], $_POST['ddate'], $_POST['status'], $_POST['dnotes'], $_GET['did']);
-                
                 $stmt->execute();
-                
                 $stmt->close();
                 
                 header('Location: diagnosis-records.php');
@@ -41,12 +36,10 @@
             $sql = "SELECT * FROM Diagnoses WHERE diagnosis_id=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $_GET['did']);
-
             $stmt->execute();
-
             $result = $stmt->get_result();
-
             $arrayResult = [];
+
             while ($row = $result->fetch_assoc()) {
                 $arrayResult[] = $row;
             }
@@ -58,7 +51,6 @@
         <main>
             <h1>Update Diagnosis</h1>
             <form method="post">
-
                 <label>Patient ID</label>
                 <input type="text" name="pid" value="<?php echo $arrayResult[0]['patient_id']; ?>">
 
@@ -78,7 +70,7 @@
                 <label>Notes</label>
                 <input type="text" name="dnotes" value="<?php echo $arrayResult[0]['notes']; ?>">
 
-                <input type="submit" name="submit" value="Update"><a href="diagnosis-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" name="submit" value="Update"><a href="diagnosis-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

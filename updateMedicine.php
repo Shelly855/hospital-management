@@ -1,3 +1,6 @@
+<?php
+    require_once('includes/medicine-config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,26 +13,19 @@
 </head>
 <body>
     <div class="container">
-    <?php
+        <?php
         include("includes/header.php");
         
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "medicine_supply_database";
-
-            $conn = new mysqli("localhost", "root", "", "medicine_supply_database");
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
             $errormedname = $errortype = $errorquantity = $errorunit = "";
             $allFields = true;
             
-
             if (isset($_POST['submit'])) {
-
                 if ($_POST['medname']==""){
                     $errormedname = "Medicine Name is mandatory";
                     $allFields = false;
@@ -51,9 +47,7 @@
                 $sql = "UPDATE Medicine SET medicine_name = ?, type = ?, quantity_in_stock = ?, unit = ? WHERE medicine_id = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param('ssdsi', $_POST['medname'], $_POST['type'], $_POST['quantity'], $_POST['unit'], $_GET['mid']);
-                
-                $stmt->execute();
-                
+                $stmt->execute(); 
                 $stmt->close();
                 
                 header('Location: medicine-records.php');
@@ -64,12 +58,10 @@
             $sql = "SELECT * FROM Medicine WHERE medicine_id=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $_GET['mid']);
-
             $stmt->execute();
-
             $result = $stmt->get_result();
-
             $arrayResult = [];
+
             while ($row = $result->fetch_assoc()) {
                 $arrayResult[] = $row;
             }
@@ -81,7 +73,6 @@
         <main>
             <h1>Update Medicine</h1>
             <form method="post">
-
                 <label>Medicine Name</label>
                 <input type="text" name="medname" value="<?php echo $arrayResult[0]['medicine_name']; ?>">
                 <span class="blank-notify"><?php echo $errormedname; ?></span>
@@ -98,7 +89,7 @@
                 <input type="text" name="unit" value="<?php echo $arrayResult[0]['unit']; ?>">
                 <span class="blank-notify"><?php echo $errorunit; ?></span>
 
-                <input type="submit" name="submit" value="Update"><a href="medicine-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" name="submit" value="Update"><a href="medicine-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

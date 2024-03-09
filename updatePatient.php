@@ -1,3 +1,6 @@
+<?php
+    require_once('includes/patient-config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,22 +16,16 @@
         <?php
         include("includes/header.php");
         
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "patient_database";
-
-            $conn = new mysqli("localhost", "root", "", "patient_database");
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
             $errorpfname = $errorpsurname = $errorpemail = $errorpdob = $erroraddress = $errorcity = $errorpostcode = "";
             $allFields = true;
 
             if (isset($_POST['submit'])) {
-
                 if ($_POST['pfname']==""){
                     $errorpfname = "First Name is mandatory";
                     $allFields = false;
@@ -62,9 +59,7 @@
                 $sql = "UPDATE Patients SET first_name = ?, surname = ?, email = ?, date_of_birth = ?, address = ?, city = ?, postcode = ? WHERE patient_id = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("sssssssi", $_POST['pfname'], $_POST['psurname'], $_POST['pemail'], $_POST['pdob'], $_POST['address'], $_POST['city'], $_POST['postcode'], $_GET['pid']);
-                
-                $stmt->execute();
-                
+                $stmt->execute();  
                 $stmt->close();
                 
                 header('Location: patient-records.php');
@@ -75,12 +70,10 @@
             $sql = "SELECT * FROM Patients WHERE patient_id=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $_GET['pid']);
-
             $stmt->execute();
-
             $result = $stmt->get_result();
-
             $arrayResult = [];
+
             while ($row = $result->fetch_assoc()) {
                 $arrayResult[] = $row;
             }
@@ -92,7 +85,6 @@
         <main>
             <h1>Update Patient</h1>
             <form method="post">
-
                 <label>First Name</label>
                 <input type="text" name="pfname" value="<?php echo $arrayResult[0]['first_name']; ?>">
                 <span class="blank-notify"><?php echo $errorpfname; ?></span>
@@ -121,7 +113,7 @@
                 <input type="text" name="postcode" value="<?php echo $arrayResult[0]['postcode']; ?>">
                 <span class="blank-notify"><?php echo $errorpostcode; ?></span>
 
-                <input type="submit" name="submit" value="Update"><a href="patient-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" name="submit" value="Update"><a href="patient-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

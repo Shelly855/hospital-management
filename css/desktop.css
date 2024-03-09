@@ -185,6 +185,7 @@ tr:nth-child(even){
   color: red;
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 #error-message {
   position: absolute;
@@ -214,4 +215,7 @@ tr:nth-child(even){
 .back-button{
   font-weight: bold; 
   padding-left: 30px;
+}
+.delete-data {
+  margin-bottom: 20px;
 }

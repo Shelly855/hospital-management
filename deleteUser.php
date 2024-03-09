@@ -1,3 +1,37 @@
+<?php
+require_once('includes/staff-config.php');
+
+
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_POST['delete'])) {
+    $stmt = $conn->prepare("DELETE FROM Staff WHERE staff_id = ?");
+    $stmt->bind_param('i', $_POST['sid']);
+    $stmt->execute();
+    $stmt->close();
+
+    header("Location: staff-records.php?deleted=true");
+    exit();
+}
+
+$sql = "SELECT first_name, surname, email, username, password, date_of_birth, job_role, hire_date, department_name, salary FROM Staff WHERE staff_id=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $_GET['sid']);
+$stmt->execute();
+$result = $stmt->get_result();
+$arrayResult = [];
+
+while($row = $result->fetch_array(MYSQLI_NUM)) {
+    $arrayResult[] = $row;
+}
+
+$stmt->close();
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,60 +46,26 @@
 <div class="container">
         <?php
             include("includes/header.php");
-
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "staff_database";
-
-            $conn = new mysqli("localhost", "root", "", "staff_database");
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            if (isset($_POST['delete'])) {
-
-                $stmt = $conn->prepare("DELETE FROM Staff WHERE staff_id = ?");
-                $stmt->bind_param('i', $_POST['sid']);
-                $stmt->execute();
-                $stmt->close();
-            
-                header("Location: staff-records.php?deleted=true");
-                exit();
-            }
-
-            $sql = "SELECT first_name, surname, email, username, password, date_of_birth, job_role, hire_date, department_name, salary FROM Staff WHERE staff_id=?";
-            $stmt = $conn->prepare($sql);
-
-            $stmt->bind_param('i', $_GET['sid']);
-
-            $stmt->execute();
-
-            $result = $stmt->get_result();
-
-            $arrayResult = [];
-
-            while($row = $result->fetch_array(MYSQLI_NUM)) {
-                $arrayResult[] = $row;
-            }
-
-            $stmt->close();
-            $conn->close();
         ?>  
         <main>
         <h2>Delete Staff User <?php echo $_GET['sid'];?></h2><br>
-        <div class="confirm">Are you sure want to delete this user?</div><br>
+        <div class="confirm">Are you sure want to delete this user?</div>
+        <div class="delete-data">
                 <label class="delete-label">First Name</label>
-                <label><?php echo $arrayResult[0][0] ?></label><br>
+                <label><?php echo $arrayResult[0][0] ?></label>
+        </div>
+        <div class="delete-data">
                 <label class="delete-label">Surname</label>
-                <label><?php echo $arrayResult[0][1] ?></label><br>
+                <label><?php echo $arrayResult[0][1] ?></label>
+        </div>
+        <div class="delete-data">
                 <label class="delete-label">Job Role</label>
-                <label><?php echo $arrayResult[0][6] ?></label><br>
-                <form method="post">
-                     <input type="hidden" name="sid" value = "<?php echo $_GET['sid'] ?>"><br>
-                    <input type="submit" value="Delete" name="delete"><a href="staff-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
-                </form>
+                <label><?php echo $arrayResult[0][6] ?></label>
+        </div>
+        <form method="post">
+            <input type="hidden" name="sid" value = "<?php echo $_GET['sid'] ?>"><br>
+            <input type="submit" value="Delete" name="delete"><a href="staff-records.php" class="back-button">Back</a>
+        </form>
         </main>
         <?php
             include("includes/footer.php");

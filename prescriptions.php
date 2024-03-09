@@ -9,7 +9,7 @@
     <title>Prescriptions</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <?php
             include("viewRecordsSql/viewPrescriptionSql.php");
 
@@ -42,7 +42,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <?php foreach ($prescriptions as $prescription): ?>
+                        <?php foreach ($prescriptions as $prescription): ?>
                             <tr>
                                 <td><?php echo $prescription['prescription_id']; ?></td>
                                 <td><?php echo $prescription['patient_name']; ?></td>

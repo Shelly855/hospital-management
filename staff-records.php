@@ -43,23 +43,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                            for ($i=0; $i<count($staff); $i++):
-                        ?>
+                        <?php foreach ($staff as $staff): ?>
                         <tr>
-                            <td><?php echo $staff[$i]['staff_id']?></td>
-                            <td><?php echo $staff[$i]['first_name']?></td>
-                            <td><?php echo $staff[$i]['surname']?></td>
-                            <td><?php echo $staff[$i]['email']?></td>
-                            <td><?php echo $staff[$i]['username']?></td>
-                            <td><?php echo $staff[$i]['date_of_birth']?></td>
-                            <td><?php echo $staff[$i]['job_role']?></td>
-                            <td><?php echo $staff[$i]['hire_date']?></td>
-                            <td><?php echo $staff[$i]['department_name']?></td>
-                            <td><?php echo $staff[$i]['salary']?></td>
-                            <td><a href="updateUser.php?sid=<?php echo $staff[$i]['staff_id']; ?>">Update</a> <a href="deleteUser.php?sid=<?php echo $staff[$i]['staff_id']; ?>">Delete</a></td>
+                            <td><?php echo $staff['staff_id']; ?></td>
+                            <td><?php echo $staff['first_name']; ?></td>
+                            <td><?php echo $staff['surname']; ?></td>
+                            <td><?php echo $staff['email']; ?></td>
+                            <td><?php echo $staff['username']; ?></td>
+                            <td><?php echo $staff['date_of_birth']; ?></td>
+                            <td><?php echo $staff['job_role']; ?></td>
+                            <td><?php echo $staff['hire_date']; ?></td>
+                            <td><?php echo $staff['department_name']; ?></td>
+                            <td><?php echo $staff['salary']; ?></td>
+                            <td><a href="updateUser.php?sid=<?php echo $staff['staff_id']; ?>">Update</a> 
+                            <a href="deleteUser.php?sid=<?php echo $staff['staff_id']; ?>">Delete</a></td>
                         </tr>
-                        <?php endfor;?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>   
             </div> 

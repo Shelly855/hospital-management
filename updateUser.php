@@ -1,3 +1,6 @@
+<?php
+    require_once('includes/staff-config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,16 +16,11 @@
         <?php
         include("includes/header.php");
         
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "staff_database";
-
-            $conn = new mysqli("localhost", "root", "", "staff_database");
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
             $errorfname = $errorsurname = $erroremail = $erroruname = $errordob = $errorhdate = $errordepartment = $errorsalary = "";
             $allFields = true;
@@ -66,9 +64,7 @@
                 $sql = "UPDATE Staff SET first_name = ?, surname = ?, email = ?, username = ?, date_of_birth = ?, job_role = ?, hire_date = ?, department_name = ?, salary = ? WHERE staff_id = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("ssssssssdi", $_POST['fname'], $_POST['surname'], $_POST['email'], $_POST['uname'], $_POST['dob'], $_POST['job'], $_POST['hdate'], $_POST['department'], $_POST['salary'], $_GET['sid']);
-                
-                $stmt->execute();
-                
+                $stmt->execute();     
                 $stmt->close();
                 
                 header('Location: staff-records.php');
@@ -79,12 +75,10 @@
             $sql = "SELECT * FROM Staff WHERE staff_id=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $_GET['sid']);
-
             $stmt->execute();
-
             $result = $stmt->get_result();
-
             $arrayResult = [];
+
             while ($row = $result->fetch_assoc()) {
                 $arrayResult[] = $row;
             }
@@ -96,7 +90,6 @@
         <main>
             <h1>Update Staff</h1>
             <form method="post">
-
                 <label>First Name</label>
                 <input type="text" name="fname" value="<?php echo $arrayResult[0]['first_name']; ?>">
                 <span class="blank-notify"><?php echo $errorfname; ?></span>
@@ -137,7 +130,7 @@
                 <input type="number" name="salary" value="<?php echo $arrayResult[0]['salary']; ?>">
                 <span class="blank-notify"><?php echo $errorsalary; ?></span>
 
-                <input type="submit" name="submit" value="Update"><a href="staff-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" name="submit" value="Update"><a href="staff-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

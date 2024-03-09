@@ -20,7 +20,8 @@
             <div class="search-container">
                 <form action="" method="GET">
                     <input type="text" class="search" name="surname" placeholder="Search by Surname">
-                    <input type="date" class="search" name="date_of_birth" placeholder="Search by DOB">
+                    <label for="date_of_birth">Search by DOB:</label>
+                    <input type="date" class="search" name="date_of_birth">
                     <input type="text" class="search" name="address" placeholder="Search by Address">
                     <button id="search-button" type="submit">Search</button>
                 </form>

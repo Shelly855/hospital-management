@@ -18,11 +18,8 @@ function verifyUsers () {
     }
 
     $stmt = $conn->prepare('SELECT username, staff_id, first_name, job_role FROM Staff WHERE username=? AND password=?');
-
     $stmt->bind_param('ss', $_POST['username'], $_POST['password']);
-
     $stmt->execute();
-
     $stmt->bind_result($userName, $staffId, $firstName, $jobRole);
 
     $rows_array = array();

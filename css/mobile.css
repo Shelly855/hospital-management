@@ -178,6 +178,7 @@ form{
   color: red;
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 .blank-notify{
   color:red;
@@ -215,4 +216,11 @@ form{
   border: none;
   background-color: #4CAF50;
   display: inline-block;
+}
+.back-button{
+  font-weight: bold; 
+  padding-left: 30px;
+}
+.delete-data {
+  margin-bottom: 20px;
 }

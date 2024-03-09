@@ -1,3 +1,36 @@
+<?php
+require_once('includes/medicine-config.php');
+
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_POST['delete'])) {
+    $stmt = $conn->prepare("DELETE FROM Medicine WHERE medicine_id = ?");
+    $stmt->bind_param('i', $_POST['mid']);
+    $stmt->execute();
+    $stmt->close();
+
+    header("Location: medicine-records.php?deleted=true");
+    exit();
+}
+
+$sql = "SELECT medicine_name, type, quantity_in_stock, unit FROM Medicine WHERE medicine_id=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $_GET['mid']);
+$stmt->execute();
+$result = $stmt->get_result();
+$arrayResult = [];
+
+while($row = $result->fetch_array(MYSQLI_NUM)) {
+    $arrayResult[] = $row;
+}
+
+$stmt->close();
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,65 +42,33 @@
     <title>Delete Medicine</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <?php
             include("includes/header.php");
-
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "medicine_supply_database";
-
-            $conn = new mysqli("localhost", "root", "", "medicine_supply_database");
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            if (isset($_POST['delete'])) {
-
-                $stmt = $conn->prepare("DELETE FROM Medicine WHERE medicine_id = ?");
-                $stmt->bind_param('i', $_POST['mid']);
-                $stmt->execute();
-                $stmt->close();
-            
-                header("Location: medicine-records.php?deleted=true");
-                exit();
-            }
-
-            $sql = "SELECT medicine_name, type, quantity_in_stock, unit FROM Medicine WHERE medicine_id=?";
-            $stmt = $conn->prepare($sql);
-
-            $stmt->bind_param('i', $_GET['mid']);
-
-            $stmt->execute();
-
-            $result = $stmt->get_result();
-
-            $arrayResult = [];
-
-            while($row = $result->fetch_array(MYSQLI_NUM)) {
-                $arrayResult[] = $row;
-            }
-
-            $stmt->close();
-            $conn->close();
         ?>  
         <main>
-        <h2>Delete Medicine <?php echo $_GET['mid'];?></h2><br>
-        <div class="confirm">Are you sure want to delete this medicine record?</div><br>
-                <label class="delete-label">Name</label>
-                <label><?php echo $arrayResult[0][0] ?></label><br>
-                <label class="delete-label">Type</label>
-                <label><?php echo $arrayResult[0][1] ?></label><br>
-                <label class="delete-label">Quantity</label>
-                <label><?php echo $arrayResult[0][2] ?></label><br>
-                <label class="delete-label">Unit</label>
-                <label><?php echo $arrayResult[0][3] ?></label><br>
-                <form method="post">
-                     <input type="hidden" name="mid" value = "<?php echo $_GET['mid'] ?>"><br>
-                    <input type="submit" value="Delete" name="delete"><a href="medicine-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
-                </form>
+            <h2>Delete Medicine <?php echo $_GET['mid'];?></h2><br>
+            <div class="confirm">Are you sure want to delete this medicine record?</div>
+            <div class="delete-data">
+                    <label class="delete-label">Name</label>
+                    <label><?php echo $arrayResult[0][0] ?></label>
+            </div>
+            <div class="delete-data">
+                    <label class="delete-label">Type</label>
+                    <label><?php echo $arrayResult[0][1] ?></label>
+            </div>
+            <div class="delete-data">
+                    <label class="delete-label">Quantity</label>
+                    <label><?php echo $arrayResult[0][2] ?></label>
+            </div>
+            <div class="delete-data">
+                    <label class="delete-label">Unit</label>
+                    <label><?php echo $arrayResult[0][3] ?></label>
+            </div>
+            <form method="post">
+                <input type="hidden" name="mid" value = "<?php echo $_GET['mid'] ?>"><br>
+                <input type="submit" value="Delete" name="delete"><a href="medicine-records.php" class="back-button">Back</a>
+            </form>
         </main>
         <?php
             include("includes/footer.php");

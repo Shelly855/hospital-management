@@ -9,7 +9,7 @@
     <title>Lab Tests</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <?php
             include("viewRecordsSql/viewLabTestSql.php");
 
@@ -41,7 +41,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <?php foreach ($labtests as $labtest): ?>
+                        <?php foreach ($labtests as $labtest): ?>
                             <tr>
                                 <td><?php echo $labtest['lab_test_id']; ?></td>
                                 <td><?php echo $labtest['patient_name']; ?></td>

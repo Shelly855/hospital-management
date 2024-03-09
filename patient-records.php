@@ -42,21 +42,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                            for ($i=0; $i<count($patients); $i++):
-                        ?>
-                        <tr>
-                            <td><?php echo $patients[$i]['patient_id']?></td>
-                            <td><?php echo $patients[$i]['first_name']?></td>
-                            <td><?php echo $patients[$i]['surname']?></td>
-                            <td><?php echo $patients[$i]['email']?></td>
-                            <td><?php echo $patients[$i]['date_of_birth']?></td>
-                            <td><?php echo $patients[$i]['address']?></td>
-                            <td><?php echo $patients[$i]['city']?></td>
-                            <td><?php echo $patients[$i]['postcode']?></td>
-                            <td><a href="updatePatient.php?pid=<?php echo $patients[$i]['patient_id']; ?>">Update</a> <a href="deletePatient.php?pid=<?php echo $patients[$i]['patient_id']; ?>">Delete</a></td>
-                        </tr>
-                        <?php endfor;?>
+                        <?php foreach ($patients as $patients): ?>
+                            <tr>
+                                <td><?php echo $patients['patient_id']; ?></td>
+                                <td><?php echo $patients['first_name']; ?></td>
+                                <td><?php echo $patients['surname']; ?></td>
+                                <td><?php echo $patients['email']; ?></td>
+                                <td><?php echo $patients['date_of_birth']; ?></td>
+                                <td><?php echo $patients['address']; ?></td>
+                                <td><?php echo $patients['city']; ?></td>
+                                <td><?php echo $patients['postcode']; ?></td>
+                                <td>
+                                    <a href="updatePatient.php?pid=<?php echo $patients['patient_id']; ?>">Update</a> 
+                                    <a href="deletePatient.php?pid=<?php echo $patients['patient_id']; ?>">Delete</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>   
             </div> 

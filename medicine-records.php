@@ -38,18 +38,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                            for ($i=0; $i<count($medicine); $i++):
-                        ?>
-                        <tr>
-                            <td><?php echo $medicine[$i]['medicine_id']?></td>
-                            <td><?php echo $medicine[$i]['medicine_name']?></td>
-                            <td><?php echo $medicine[$i]['type']?></td>
-                            <td><?php echo $medicine[$i]['quantity_in_stock']?></td>
-                            <td><?php echo $medicine[$i]['unit']?></td>
-                            <td><a href="updateMedicine.php?mid=<?php echo $medicine[$i]['medicine_id']; ?>">Update</a> <a href="deleteMedicine.php?mid=<?php echo $medicine[$i]['medicine_id']; ?>">Delete</a></td>
-                        </tr>
-                        <?php endfor;?>
+                        <?php foreach ($medicine as $medicine): ?>
+                            <tr>
+                                <td><?php echo $medicine['medicine_id']; ?></td>
+                                <td><?php echo $medicine['medicine_name']; ?></td>
+                                <td><?php echo $medicine['type']; ?></td>
+                                <td><?php echo $medicine['quantity_in_stock']; ?></td>
+                                <td><?php echo $medicine['unit']; ?></td>
+                                <td>
+                                    <a href="updateMedicine.php?mid=<?php echo $medicine['medicine_id']; ?>">Update</a> 
+                                    <a href="deleteMedicine.php?mid=<?php echo $medicine['medicine_id']; ?>">Delete</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>   
         </main>

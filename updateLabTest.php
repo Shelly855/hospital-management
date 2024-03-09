@@ -1,3 +1,6 @@
+<?php
+    require_once('includes/lab-test-config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +15,12 @@
     <div class="container">
         <?php
         include("includes/header.php");
+
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "lab_database";
-
-            $conn = new mysqli("localhost", "root", "", "lab_database");
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
             $errorpid = $errortname = $errorreqdate = "";
             $allFields = true;
@@ -46,9 +44,7 @@
                     $sql = "UPDATE Lab_Tests SET patient_id = ?, lab_test_name = ?, date_requested = ?, date_completed = ?, result = ?, notes = ? WHERE lab_test_id = ?";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("isssssi", $_POST['pid'], $_POST['tname'], $_POST['reqdate'], $_POST['cdate'], $_POST['result'], $_POST['lnotes'], $_GET['lid']);
-                    
                     $stmt->execute();
-                    
                     $stmt->close();
                     
                     header('Location: lab-tests.php');
@@ -59,12 +55,10 @@
             $sql = "SELECT * FROM Lab_Tests WHERE lab_test_id=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $_GET['lid']);
-
             $stmt->execute();
-
             $result = $stmt->get_result();
-
             $arrayResult = [];
+            
             while ($row = $result->fetch_assoc()) {
                 $arrayResult[] = $row;
             }
@@ -76,7 +70,6 @@
         <main>
             <h1>Update Lab Test</h1>
             <form method="post">
-
                 <label>Patient ID</label>
                 <input type="number" name="pid" value="<?php echo $arrayResult[0]['patient_id']; ?>">
                 <span class="blank-notify"><?php echo $errorpid; ?></span>
@@ -98,7 +91,7 @@
                 <label>Notes</label>
                 <input type="text" name="lnotes" value="<?php echo $arrayResult[0]['notes']; ?>">
 
-                <input type="submit" name="submit" value="Update"><a href="lab-tests.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" name="submit" value="Update"><a href="lab-tests.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

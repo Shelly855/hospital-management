@@ -9,7 +9,7 @@
     <title>Diagnoses</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <?php
             include("viewRecordsSql/viewDiagnosisSql.php");
 
@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <?php foreach ($diagnoses as $diagnosis): ?>
+                        <?php foreach ($diagnoses as $diagnosis): ?>
                             <tr>
                                 <td><?php echo $diagnosis['diagnosis_id']; ?></td>
                                 <td><?php echo $diagnosis['patient_name']; ?></td>

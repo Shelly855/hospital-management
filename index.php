@@ -13,17 +13,17 @@
         <?php
             include("includes/header.php");
         ?>
+        <h1>Homepage</h1>
         <main>
-            <h1>Homepage</h1>
-            <?php
-                if(isset($_SESSION['role']) && isset($navigationLinks[$_SESSION['role']])) {
-                    echo '<ul>';
-                    foreach ($navigationLinks[$_SESSION['role']] as $title => $link) {
-                        echo '<li><a href="' . $link . '" class="homepage-link">' . $title . '</a></li>';
-                    }
-                    echo '</ul>';
-                }
-            ?>
+                <div class="welcome-message">
+                    <h2>Welcome</h2>
+                </div>
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><b>Email Address:</b> management@hospital.com</p>
+                <p><b>Postal Address:</b> 20 Rhinestone Road, S1 4FX</p>
+                <p><b>Contact Number:</b> XXXXX XXXXXX</p>
+            </div>
         </main>
         <?php
             include("includes/footer.php");

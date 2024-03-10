@@ -65,25 +65,6 @@ ul{
   padding: 0;
   overflow: hidden;
 }
-.homepage-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
-  width: 150px;
-  padding: 10px;
-  margin: 10px;
-  text-align: center;
-  font-size: 25px;
-  text-decoration: none;
-  color: darkblue;
-  background-color: white;
-  border-radius: 10px;
-  border: 5px solid darkblue;
-}
-.homepage-link:hover {
-  background-color: lightgrey;
-}
 input, select{
   width: 100%;
   display:inline-block;
@@ -100,8 +81,8 @@ label {
   font-size:20px;
 }
 button, input[type=submit] {
-  background-color: #6495ed;
-  color: white;
+  background-color: #FFC355;
+  color: black;
   border: 1px darkblue solid;
   border-radius: 6px;
   padding: 15px 32px;
@@ -141,6 +122,7 @@ input:focus, select:focus{
 }
 form{
   font-size: 20px;
+  border-radius:20px;
 }
 .blank-notify{
   color:red;
@@ -175,7 +157,7 @@ tr:nth-child(odd){
   background-color: #fff;
 }
 tr:nth-child(even){
-  background-color: rgb(164, 164, 241);
+  background-color: #FFC355;
 }
 .delete-label {
   color: blue;
@@ -188,15 +170,10 @@ tr:nth-child(even){
   margin-bottom: 20px;
 }
 #error-message {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   text-align: center;
   background-color: white;
   color: #ff0000;
   padding: 10px;
-  z-index: 9999;
 }
 .search-container {
   display: flex;
@@ -218,4 +195,92 @@ tr:nth-child(even){
 }
 .delete-data {
   margin-bottom: 20px;
+}
+:root {
+  --delay: 0;
+  --duration: 800ms;
+  --iterations: 1;
+}
+.contact-info,
+.contact-info::after {
+  animation-delay: var(--animation-delay, 2s);
+  animation-iteration-count: var(--iterations, 1);
+  animation-duration: var(--duration, 800ms);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+.contact-info {
+  text-align: center;
+  --animation-delay: var(--delay, 1);
+  --animation-duration: var(--duration, 800ms);
+  --animation-iterations: var(--iterations, 1);
+  position: relative;
+  font-size: 20px;
+  animation-name: clip-text;
+  color: black;
+  white-space: nowrap;
+  cursor: default;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f98b;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    animation-name: text-revealer;
+  }
+}
+@keyframes clip-text {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes text-revealer {
+  0%, 50% {
+    transform-origin: 0 50%;
+  }
+  
+  60%, 100% {
+    transform-origin: 100% 50%;   
+  }
+
+  60% {
+    transform: scaleX(1);
+  }
+  
+  100% {
+    transform: scaleX(0);
+  }
+}
+.welcome-message {
+  text-align: center;
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 45px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #FF8C00, #fff, #FFC355);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }

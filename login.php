@@ -41,30 +41,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
 </head>
 <body>
-<div class="container">
-  <div id="login-form" class="login-form">
+  <div class="container">
+    <main>
+      <div id="login-form" class="login-form">
+        <form class="form-content" action="login.php" method="post">
+          <div class="form-box">
+            <h1>Hospital Login</h1>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" id="username" required>
 
-    <form class="form-content" action="login.php" method="post">
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
-      <div class="form-box">
-        <h1>Login</h1>
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" id="username" required>
+            <div id="error-message"><?php echo $invalidMesg; ?></div>
 
-        <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" id="password" required>
-
-        <div id="error-message"><?php echo $invalidMesg; ?></div>
-
-        <button type="submit">Login</button>
+            <button type="submit">Login</button>
+          </div>
+        </form>
       </div>
-    </form>
+    </main>
+    <?php
+        include("includes/footer.php");
+      ?>
   </div>
-
- <!-- reference: https://www.w3schools.com/howto/howto_css_login_form.asp -->
- <?php
-    include("includes/footer.php");
-  ?>
-</div>
 </body>
 </html>

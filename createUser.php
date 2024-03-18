@@ -57,7 +57,6 @@ if (isset($_POST['submit'])){
 
     if($allFields == true)
     {
-        $hashedPassword = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
         $staffID = $_POST['sid'];
         if (checkStaffIdExists($staffID, $conn)) {
             $errorsid = "Staff ID already exists";

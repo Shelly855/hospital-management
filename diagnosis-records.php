@@ -17,6 +17,7 @@
             include("includes/header.php");
         ?>
         <main>
+            <button onclick="topFunction()" class="top-button" title="Go to top">Top</button>
             <h1>Diagnoses</h1>
             <form action="createDiagnosis.php">
                 <input type="submit" value="Create New Diagnosis" />

@@ -88,7 +88,7 @@ function checkPrescriptionIdExists($presid, $conn) {
                 <input type="date" name = "collected">
                 <span class="blank-notify"></span>
 
-                <input type="submit" name="submit" value="Create Prescription"><a href="prescriptions.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" name="submit" value="Create Prescription"><a href="prescriptions.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

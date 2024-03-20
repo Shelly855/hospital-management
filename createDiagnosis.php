@@ -94,7 +94,7 @@ function checkDiagnosisIdExists($did, $conn) {
                 <input type="text" name="dnotes">
                 <span class="blank-notify"></span>
 
-                <input type="submit" name="submit" value="Create Diagnosis"><a href="diagnosis-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" name="submit" value="Create Diagnosis"><a href="diagnosis-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

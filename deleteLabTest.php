@@ -48,7 +48,7 @@ $conn->close();
         ?>  
         <main>
             <h2>Delete Lab Test <?php echo $_GET['lid'];?></h2><br>
-            <div class="confirm">Are you sure want to delete this lab test?</div>
+            <div class="confirm">Are you sure you want to delete this lab test?</div>
             <div class="delete-data">
                 <label class="delete-label">Patient ID</label>
                 <label><?php echo $arrayResult[0][0] ?></label>

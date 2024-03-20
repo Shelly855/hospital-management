@@ -110,7 +110,7 @@ function checkPatientIdExists($pid, $conn) {
                 <input type="text" name = "postcode">
                 <span class="blank-notify"><?php echo $errorpostcode; ?></span>
 
-                <input type="submit" value="Create Patient" name ="submit"><a href="patient-records.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" value="Create Patient" name ="submit"><a href="patient-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

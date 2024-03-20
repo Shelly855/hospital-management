@@ -48,7 +48,7 @@ $conn->close();
         ?>  
         <main>
             <h2>Delete Medicine <?php echo $_GET['mid'];?></h2><br>
-            <div class="confirm">Are you sure want to delete this medicine record?</div>
+            <div class="confirm">Are you sure you want to delete this medicine record?</div>
             <div class="delete-data">
                     <label class="delete-label">Name</label>
                     <label><?php echo $arrayResult[0][0] ?></label>

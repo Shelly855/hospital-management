@@ -49,7 +49,7 @@ $conn->close();
         ?>  
         <main>
         <h2>Delete Staff User <?php echo $_GET['sid'];?></h2><br>
-        <div class="confirm">Are you sure want to delete this user?</div>
+        <div class="confirm">Are you sure you want to delete this user?</div>
         <div class="delete-data">
                 <label class="delete-label">First Name</label>
                 <label><?php echo $arrayResult[0][0] ?></label>

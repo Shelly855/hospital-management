@@ -88,7 +88,7 @@ function checkLabTestIdExists($lid, $conn) {
                 <input type="text" name = "lnotes">
                 <span class="blank-notify"></span>
 
-                <input type="submit" name="submit" value="Create Lab Test"><a href="lab-tests.php" style="font-weight: bold; padding-left: 30px;">Back</a>
+                <input type="submit" name="submit" value="Create Lab Test"><a href="lab-tests.php" class="back-button">Back</a>
             </form>
         </main>
         <?php

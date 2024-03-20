@@ -48,7 +48,7 @@ $conn->close();
         ?>  
         <main>
             <h2>Delete Diagnosis <?php echo $_GET['did'];?></h2><br>
-            <div class="confirm">Are you sure want to delete this diagnosis record?</div>
+            <div class="confirm">Are you sure you want to delete this diagnosis record?</div>
             <div class="delete-data">
                 <label class="delete-label">Patient ID</label>
                 <label><?php echo $arrayResult[0][0] ?></label>

@@ -1,5 +1,5 @@
 <?php
-require_once("checkUserLogin.php");
+require_once("../folder/checkUserLogin.php");
 
 $invalidMesg = "";
 
@@ -35,16 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Login</title>
 </head>
 <body>
   <div class="container">
     <main>
       <div id="login-form" class="login-form">
-        <form class="form-content" action="login.php" method="post">
+        <form class="form-content" action="../folder/login.php" method="post">
           <div class="form-box">
             <h1>Hospital Login</h1>
             <label for="username"><b>Username</b></label>
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </main>
     <?php
-        include("includes/footer.php");
+        include("../includes/footer.php");
       ?>
   </div>
 </body>

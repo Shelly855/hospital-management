@@ -1,5 +1,5 @@
 <?php
-require_once('includes/diagnosis-config.php');
+require_once('../includes/diagnosis-config.php');
 
 function getDiagnoses(){
 

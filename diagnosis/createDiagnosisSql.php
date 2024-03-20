@@ -1,5 +1,5 @@
 <?php
-require_once('includes/diagnosis-config.php');
+require_once('../includes/diagnosis-config.php');
 
 function createDiagnosis(){
     $created = false;
@@ -30,7 +30,7 @@ function createDiagnosis(){
 
     if($result){
         $created = true;
-        header("Location: createDiagnosisSuccess.php?createDiagnosis=success");
+        header("Location: ../diagnosis/createDiagnosisSuccess.php?createDiagnosis=success");
         exit();
     } else {
         error_log("Error in executing statement: " . $stmt->error);

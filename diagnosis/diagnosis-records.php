@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Diagnoses</title>
 </head>
 <body>
     <div class="container">
         <?php
-            include("viewRecordsSql/viewDiagnosisSql.php");
+            include("../diagnosis/viewDiagnosisSql.php");
 
             $diagnoses = getDiagnoses();
-            include("includes/header.php");
+            include("../includes/header.php");
         ?>
         <main>
             <button onclick="topFunction()" class="top-button" title="Go to top">Top</button>
             <h1>Diagnoses</h1>
-            <form action="createDiagnosis.php">
+            <form action="../diagnosis/createDiagnosis.php">
                 <input type="submit" value="Create New Diagnosis" />
             </form>
-            <form action="searchForDiagnosis.php">
+            <form action="../diagnosis/searchForDiagnosis.php">
                 <input type="submit" value="Search Records" />
             </form>
 
@@ -51,8 +51,8 @@
                                 <td><?php echo $diagnosis['status']; ?></td>
                                 <td><?php echo $diagnosis['notes']; ?></td>
                                 <td>
-                                    <a href="updateDiagnosis.php?did=<?php echo $diagnosis['diagnosis_id']; ?>">Update</a> 
-                                    <a href="deleteDiagnosis.php?did=<?php echo $diagnosis['diagnosis_id']; ?>">Delete</a>
+                                    <a href="../diagnosis/updateDiagnosis.php?did=<?php echo $diagnosis['diagnosis_id']; ?>">Update</a> 
+                                    <a href="../diagnosis/deleteDiagnosis.php?did=<?php echo $diagnosis['diagnosis_id']; ?>">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -61,7 +61,7 @@
             </div> 
         </main>
         <?php
-            include("includes/footer.php");
+            include("../includes/footer.php");
         ?>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <?php
-include_once("createRecordSql/createPatientSql.php");
+include_once("../patient/createPatientSql.php");
 $conn = mysqli_connect("localhost", "root", "", "patient_database");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -65,15 +65,15 @@ function checkPatientIdExists($pid, $conn) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Create Patient Record</title>
 </head>
 <body>
     <div class="container"> 
         <?php
-                include("includes/header.php");
+                include("../includes/header.php");
         ?>  
         <main>
             <h1>Create Patient Record</h1>
@@ -110,11 +110,11 @@ function checkPatientIdExists($pid, $conn) {
                 <input type="text" name = "postcode">
                 <span class="blank-notify"><?php echo $errorpostcode; ?></span>
 
-                <input type="submit" value="Create Patient" name ="submit"><a href="patient-records.php" class="back-button">Back</a>
+                <input type="submit" value="Create Patient" name ="submit"><a href="../patient/patient-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php
-            include("includes/footer.php");
+            include("../includes/footer.php");
         ?>
     </div>
 </body>

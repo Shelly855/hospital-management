@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Search</title>
 </head>
 <body>
     <div class="container">
-        <?php include("includes/header.php"); ?>  
+        <?php include("../includes/header.php"); ?>  
         <main>
             <h1>Search For Lab Test</h1>
-            <form action="lab-tests.php">
+            <form action="../labTest/lab-tests.php">
                 <input type="submit" value="Back" />
             </form>
 
@@ -28,7 +28,7 @@
             <div class="table-container">
                 <?php
                     if(isset($_GET['patient_id']) || isset($_GET['lab_test_name'])) {
-                        include("search/labTestSearch.php");
+                        include("../labTest/labTestSearch.php");
                     }
                     if (isset($searchResults) && !empty($searchResults)) {
                         echo "<table>";
@@ -57,7 +57,7 @@
                 ?>
             </div>
         </main>
-        <?php include("includes/footer.php"); ?>
+        <?php include("../includes/footer.php"); ?>
     </div>
 </body>
 </html>

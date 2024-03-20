@@ -1,5 +1,5 @@
 <?php
-require_once('includes/lab-test-config.php');
+require_once('../includes/lab-test-config.php');
 
 function createLabTest(){
     $created = false;
@@ -31,7 +31,7 @@ function createLabTest(){
 
     if($result){
         $created = true;
-        header("Location: createLabTestSuccess.php?createLabTest=success");
+        header("Location: ../labTest/createLabTestSuccess.php?createLabTest=success");
         exit();
     } else {
         error_log("Error in executing statement: " . $stmt->error);

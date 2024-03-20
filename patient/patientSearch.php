@@ -1,22 +1,27 @@
 <?php
-require_once("includes/lab-test-config.php");
+require_once("../includes/patient-config.php");
 
-$searchPatientID = $_GET['patient_id'] ?? '';
-$searchLabTestName = $_GET['lab_test_name'] ?? '';
+$searchSurname = $_GET['surname'] ?? '';
+$searchDOB = $_GET['date_of_birth'] ?? '';
+$searchAddress = $_GET['address'] ?? '';
 
 $conditions = [];
 $parameters = [];
 
-if (!empty($searchPatientID)) {
-    $conditions[] = "patient_id LIKE ?";
-    $parameters[] = "%$searchPatientID%";
+if (!empty($searchSurname)) {
+    $conditions[] = "surname = ?";
+    $parameters[] = $searchSurname;
 }
-if (!empty($searchLabTestName)) {
-    $conditions[] = "lab_test_name LIKE ?";
-    $parameters[] = "%$searchLabTestName%";
+if (!empty($searchDOB)) {
+    $conditions[] = "date_of_birth = ?";
+    $parameters[] = $searchDOB;
+}
+if (!empty($searchAddress)) {
+    $conditions[] = "address LIKE ?";
+    $parameters[] = "%$searchAddress%";
 }
 
-$sql = "SELECT * FROM lab_tests";
+$sql = "SELECT * FROM patients";
 
 if (!empty($conditions)) {
     $sql .= " WHERE " . implode(" AND ", $conditions);

@@ -1,5 +1,5 @@
 <?php
-require_once('includes/patient-config.php');
+require_once('../includes/patient-config.php');
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
@@ -13,7 +13,7 @@ if (isset($_POST['delete'])) {
     $stmt->execute();
     $stmt->close();
 
-    header("Location: patient-records.php?deleted=true");
+    header("Location: ../patient/patient-records.php?deleted=true");
     exit();
 }
 
@@ -36,15 +36,15 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Delete Patient</title>
 </head>
 <body>
     <div class="container">
         <?php
-            include("includes/header.php");
+            include("../includes/header.php");
         ?>  
         <main>
             <h2>Delete Patient <?php echo $_GET['pid'];?></h2><br>
@@ -71,11 +71,11 @@ $conn->close();
             </div>
             <form method="post">
                 <input type="hidden" name="pid" value = "<?php echo $_GET['pid'] ?>"><br>
-                <input type="submit" value="Delete" name="delete"><a href="patient-records.php" class="back-button">Back</a>
+                <input type="submit" value="Delete" name="delete"><a href="../patient/patient-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php
-            include("includes/footer.php");
+            include("../includes/footer.php");
         ?>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <?php
-require_once('includes/lab-test-config.php');
+require_once('../includes/lab-test-config.php');
 
 function getLabTests(){
 

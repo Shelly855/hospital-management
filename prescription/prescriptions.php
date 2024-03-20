@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Prescriptions</title>
 </head>
 <body>
     <div class="container">
         <?php
-            include("viewRecordsSql/viewPrescriptionSql.php");
+            include("../prescription/viewPrescriptionSql.php");
 
             $prescriptions = getPrescriptions();
-            include("includes/header.php");
+            include("../includes/header.php");
         ?>
         <main>
             <button onclick="topFunction()" class="top-button" title="Go to top">Top</button>
             <h1>Prescriptions</h1>
-            <form action="createPrescription.php">
+            <form action="../prescription/createPrescription.php">
                 <input type="submit" value="Create New Prescription" />
             </form>
-            <form action="searchForPrescription.php">
+            <form action="../prescription/searchForPrescription.php">
                 <input type="submit" value="Search Records" />
             </form>
 
@@ -55,8 +55,8 @@
                                 <td><?php echo $prescription['date_issued']; ?></td>
                                 <td><?php echo $prescription['date_collected']; ?></td>
                                 <td>
-                                    <a href="updatePrescription.php?presid=<?php echo $prescription['prescription_id']; ?>">Update</a> 
-                                    <a href="deletePrescription.php?presid=<?php echo $prescription['prescription_id']; ?>">Delete</a>
+                                    <a href="../prescription/updatePrescription.php?presid=<?php echo $prescription['prescription_id']; ?>">Update</a> 
+                                    <a href="../prescription/deletePrescription.php?presid=<?php echo $prescription['prescription_id']; ?>">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -65,7 +65,7 @@
             </div> 
         </main>
         <?php
-            include("includes/footer.php");
+            include("../includes/footer.php");
         ?>
     </div>
     

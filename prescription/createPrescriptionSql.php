@@ -1,5 +1,5 @@
 <?php
-require_once('includes/patient-config.php');
+require_once('../includes/patient-config.php');
 
 function createPrescription(){
     $created = false;
@@ -30,7 +30,7 @@ function createPrescription(){
 
     if($result){
         $created = true;
-        header("Location: createPrescriptionSuccess.php?createPrescription=success");
+        header("Location: ../prescription/createPrescriptionSuccess.php?createPrescription=success");
         exit();
     } else {
         error_log("Error in executing statement: " . $stmt->error);

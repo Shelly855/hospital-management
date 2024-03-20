@@ -1,5 +1,5 @@
 <?php
-require_once('includes/patient-config.php');
+require_once('../includes/patient-config.php');
 
 function getPrescriptions(){
 

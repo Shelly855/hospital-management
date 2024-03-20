@@ -1,5 +1,5 @@
 <?php
-include_once("createRecordSql/createPrescriptionSql.php");
+include_once("../prescription/createPrescriptionSql.php");
 $conn = mysqli_connect("localhost", "root", "", "patient_database");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -51,15 +51,15 @@ function checkPrescriptionIdExists($presid, $conn) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Create Prescription</title>
 </head>
 <body>
     <div class="container"> 
             <?php
-                    include("includes/header.php");
+                include("../includes/header.php");
             ?>  
         <main>
             <h1>Create Prescription</h1>
@@ -88,11 +88,11 @@ function checkPrescriptionIdExists($presid, $conn) {
                 <input type="date" name = "collected">
                 <span class="blank-notify"></span>
 
-                <input type="submit" name="submit" value="Create Prescription"><a href="prescriptions.php" class="back-button">Back</a>
+                <input type="submit" name="submit" value="Create Prescription"><a href="../prescription/prescriptions.php" class="back-button">Back</a>
             </form>
         </main>
         <?php
-            include("includes/footer.php");
+            include("../includes/footer.php");
         ?>
     </div>
 </body>

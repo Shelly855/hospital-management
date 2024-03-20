@@ -1,8 +1,11 @@
 <?php
 include_once("../labTest/createLabTestSql.php");
-$conn = mysqli_connect("localhost", "root", "", "lab_database");
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+require_once('../includes/lab-test-config.php');
+
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 $errorlid = $errorpid = $errortname = $errorreqdate = "";

@@ -1,8 +1,11 @@
 <?php
 include_once("../patient/createPatientSql.php");
-$conn = mysqli_connect("localhost", "root", "", "patient_database");
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+require_once('../includes/patient-config.php');
+
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 $errorpid = $errorpfname = $errorpsurname = $errorpemail = $errorpdob = $erroraddress = $errorcity = $errorpostcode = "";

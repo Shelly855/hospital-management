@@ -13,7 +13,7 @@
         <?php include("../includes/header.php"); ?>  
         <main>
             <h1>Search For Staff</h1>
-            <form action="../staffuUser/staff-records.php">
+            <form action="../staffUser/staff-records.php">
                 <input type="submit" value="Back" />
             </form>
 

@@ -24,9 +24,9 @@
         ),
         'admin' => array(
             'Homepage' => 'index.php',
-            'Staff Records' => '../../staffUser/staff-records.php',
+            'Staff Records' => '../staffUser/staff-records.php',
             'Patient Records' => 'patient-records.php',
-            'Log Out' => 'logout.php'
+            'Log Out' => '../folder/logout.php'
         )
     );
 ?>

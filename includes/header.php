@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    require_once('includes/header-config.php');
+    require_once('../includes/header-config.php');
 
     if (isset($_SESSION['role']) && isset($navigationLinks[$_SESSION['role']])) {
         $role = $_SESSION['role'];
@@ -12,7 +12,7 @@
         }
         echo '</ul>';
     } else {
-        header("Location: login.php");
+        header("Location: ../folder/login.php");
         exit(); 
     }
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once('includes/medicine-config.php');
+require_once('../includes/medicine-config.php');
 
 function getMedicine(){
 

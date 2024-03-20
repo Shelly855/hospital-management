@@ -1,5 +1,5 @@
 <?php
-require_once("../folder/checkUserLogin.php");
+require_once("../login/checkUserLogin.php");
 
 $invalidMesg = "";
 
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="container">
     <main>
       <div id="login-form" class="login-form">
-        <form class="form-content" action="../folder/login.php" method="post">
+        <form class="form-content" action="../login/login.php" method="post">
           <div class="form-box">
             <h1>Hospital Login</h1>
             <label for="username"><b>Username</b></label>

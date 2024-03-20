@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Medicine Records</title>
 </head>
 <body>
     <div class="container">
         <?php
-            include("viewRecordsSql/viewMedicineSql.php");
+            include("../medicine/viewMedicineSql.php");
 
             $medicine = getMedicine();
-            include("includes/header.php");
+            include("../includes/header.php");
         ?>
         <main>
             <button onclick="topFunction()" class="top-button" title="Go to top">Top</button>
             <h1>Medicine Records</h1>
-            <form action="createMedicine.php">
+            <form action="../medicine/createMedicine.php">
                 <input type="submit" value="Create New Medicine" />
             </form>
-            <form action="searchForMedicine.php">
+            <form action="../medicine/searchForMedicine.php">
                 <input type="submit" value="Search Records" />
             </form>
 
@@ -47,8 +47,8 @@
                                 <td><?php echo $medicine['quantity_in_stock']; ?></td>
                                 <td><?php echo $medicine['unit']; ?></td>
                                 <td>
-                                    <a href="updateMedicine.php?mid=<?php echo $medicine['medicine_id']; ?>">Update</a> 
-                                    <a href="deleteMedicine.php?mid=<?php echo $medicine['medicine_id']; ?>">Delete</a>
+                                    <a href="../medicine/updateMedicine.php?mid=<?php echo $medicine['medicine_id']; ?>">Update</a> 
+                                    <a href="../medicine/deleteMedicine.php?mid=<?php echo $medicine['medicine_id']; ?>">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -56,7 +56,7 @@
                 </table>   
         </main>
         <?php
-            include("includes/footer.php");
+            include("../includes/footer.php");
         ?>
     </div>
 </body>

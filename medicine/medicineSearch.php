@@ -1,5 +1,5 @@
 <?php
-require_once("includes/medicine-config.php");
+require_once("../includes/medicine-config.php");
 
 $searchMedicineID = $_GET['medicine_id'] ?? '';
 $searchMedicineName = $_GET['medicine_name'] ?? '';

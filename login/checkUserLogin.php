@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($verifiedUsers)) {
         $_SESSION['stfID'] = $verifiedUsers[0]['staff_id'];
         $_SESSION['role'] = $verifiedUsers[0]['Role'];
-        header("Location: ../folder/index.php");
+        header("Location: ../login/index.php");
         exit;
     } else {
         echo "<script>document.addEventListener('DOMContentLoaded', function() {

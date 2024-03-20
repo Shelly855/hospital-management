@@ -12,7 +12,7 @@
         }
         echo '</ul>';
     } else {
-        header("Location: ../folder/login.php");
+        header("Location: ../login/login.php");
         exit(); 
     }
 ?>

@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Staff Records</title>
 </head>
 <body>
     <div class="container">
         <?php
-            include("viewRecordsSql/viewUserSql.php");
+            include("../staffUser/viewUserSql.php");
 
             $staff = getUsers();
-            include("includes/header.php");
+            include("../includes/header.php");
         ?>
         <main>
             <button onclick="topFunction()" class="top-button" title="Go to top">Top</button>
             <h1>Staff Records</h1>
-            <form action="createUser.php">
+            <form action="../staffUser/createUser.php">
                 <input type="submit" value="Create New Staff" />
             </form>
-            <form action="searchForStaff.php">
+            <form action="../staffUser/searchForStaff.php">
                 <input type="submit" value="Search Records" />
             </form>
 
@@ -56,8 +56,8 @@
                             <td><?php echo $staff['hire_date']; ?></td>
                             <td><?php echo $staff['department_name']; ?></td>
                             <td><?php echo $staff['salary']; ?></td>
-                            <td><a href="updateUser.php?sid=<?php echo $staff['staff_id']; ?>">Update</a> 
-                            <a href="deleteUser.php?sid=<?php echo $staff['staff_id']; ?>">Delete</a></td>
+                            <td><a href="../staffUser/updateUser.php?sid=<?php echo $staff['staff_id']; ?>">Update</a> 
+                            <a href="../staffUser/deleteUser.php?sid=<?php echo $staff['staff_id']; ?>">Delete</a></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -65,7 +65,7 @@
             </div> 
         </main>
         <?php
-            include("includes/footer.php");
+            include("../includes/footer.php");
         ?>
     </div>
 </body>

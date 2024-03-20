@@ -1,20 +1,20 @@
 <?php
-    require_once('includes/staff-config.php');
+    require_once('../includes/staff-config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Update Staff User</title>
 </head>
 <body>
     <div class="container">
         <?php
-        include("includes/header.php");
+        include("../includes/header.php");
         
         $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         
@@ -67,7 +67,7 @@
                 $stmt->execute();     
                 $stmt->close();
                 
-                header('Location: staff-records.php');
+                header('Location: ../staffUser/staff-records.php');
                 exit();
             }
         }
@@ -130,11 +130,11 @@
                 <input type="number" name="salary" value="<?php echo $arrayResult[0]['salary']; ?>">
                 <span class="blank-notify"><?php echo $errorsalary; ?></span>
 
-                <input type="submit" name="submit" value="Update"><a href="staff-records.php" class="back-button">Back</a>
+                <input type="submit" name="submit" value="Update"><a href="../staffUser/staff-records.php" class="back-button">Back</a>
             </form>
         </main>
         <?php
-            include("includes/footer.php");
+            include("../includes/footer.php");
         ?>
     </div>
 </body>

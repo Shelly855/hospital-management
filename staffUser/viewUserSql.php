@@ -1,5 +1,5 @@
 <?php
-require_once('includes/staff-config.php');
+require_once('../includes/staff-config.php');
 
 function getUsers(){
 

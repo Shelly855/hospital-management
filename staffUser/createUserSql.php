@@ -1,5 +1,5 @@
 <?php
-require_once('includes/staff-config.php');
+require_once('../includes/staff-config.php');
 
 function createUser(){
     $created = false;
@@ -35,7 +35,7 @@ function createUser(){
 
     if($result){
         $created = true;
-        header("Location: createUserSuccess.php?createUser=success");
+        header("Location: ../staffUser/createUserSuccess.php?createUser=success");
         exit();
     } else {
         error_log("Error in executing statement: " . $stmt->error);

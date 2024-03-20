@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
-    <link href="css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
-    <script src="javascript/main.js" defer></script>
+    <link href="../css/desktop.css" media="only screen and (min-width:720px)" rel="stylesheet" type="text/css">
+    <link href="../css/mobile.css" media="only screen and (max-width:720px)" rel="stylesheet" type="text/css">
+    <script src="../javascript/main.js" defer></script>
     <title>Search</title>
 </head>
 <body>
     <div class="container">
-        <?php include("includes/header.php"); ?>  
+        <?php include("../includes/header.php"); ?>  
         <main>
             <h1>Search For Staff</h1>
-            <form action="staff-records.php">
+            <form action="../staffuUser/staff-records.php">
                 <input type="submit" value="Back" />
             </form>
 
@@ -31,7 +31,7 @@
             <div class="table-container">
                 <?php
                     if(isset($_GET['surname']) || isset($_GET['date_of_birth']) || isset($_GET['job_role']) || isset($_GET['department_name'])) {
-                        include("search/staffSearch.php");
+                        include("../staffUser/staffSearch.php");
                     }
                     if (isset($searchResults) && !empty($searchResults)) {
                         echo "<table>";
@@ -66,7 +66,7 @@
                 ?>
             </div>
         </main>
-        <?php include("includes/footer.php"); ?>
+        <?php include("../includes/footer.php"); ?>
     </div>
 </body>
 </html>

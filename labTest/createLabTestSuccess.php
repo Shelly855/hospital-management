@@ -1,3 +1,8 @@
+<?php
+    $result = isset($_GET['createLabTest']) ? $_GET['createLabTest'] : '';
+
+    $message = ($result) ? "Lab Test Created Successfully!" : "Lab Test Creation Failed!";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +17,6 @@
     <div class="container">
         <?php
             include("../includes/header.php");
-
-            $result = isset($_GET['createLabTest']) ? $_GET['createLabTest'] : '';
-
-            $message = ($result) ? "Lab Test Created Successfully!" : "Lab Test Creation Failed!";
         ?>  
         <main>
             <h1><?php echo $message; ?></h1>

@@ -1,3 +1,8 @@
+<?php
+    $result = isset($_GET['createPrescription']) ? $_GET['createPrescription'] : '';
+
+    $message = ($result) ? "Prescription Created Successfully!" : "Prescription Creation Failed!";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +17,6 @@
     <div class="container">
         <?php
             include("../includes/header.php");
-
-            $result = isset($_GET['createPrescription']) ? $_GET['createPrescription'] : '';
-
-            $message = ($result) ? "Prescription Created Successfully!" : "Prescription Creation Failed!";
         ?>  
         <main>
             <h1><?php echo $message; ?></h1>

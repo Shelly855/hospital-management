@@ -1,3 +1,8 @@
+<?php
+    $result = isset($_GET['createMedicine']) ? $_GET['createMedicine'] : '';
+
+    $message = ($result) ? "Medicine Supply Record Created Successfully!" : "Medicine Supply Record Creation Failed!";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +15,8 @@
 </head>
 <body>
     <div class="container">
-    <?php
+        <?php
             include("../includes/header.php");
-
-            $result = isset($_GET['createMedicine']) ? $_GET['createMedicine'] : '';
-
-            $message = ($result) ? "Medicine Supply Record Created Successfully!" : "Medicine Supply Record Creation Failed!";
         ?>  
         <main>
             <h1><?php echo $message; ?></h1>

@@ -1,3 +1,8 @@
+<?php
+    $result = isset($_GET['createDiagnosis']) ? $_GET['createDiagnosis'] : '';
+
+    $message = ($result) ? "Diagnosis Created Successfully!" : "Diagnosis Creation Failed!";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +17,6 @@
     <div class="container">
         <?php
             include("../includes/header.php");
-
-            $result = isset($_GET['createDiagnosis']) ? $_GET['createDiagnosis'] : '';
-
-            $message = ($result) ? "Diagnosis Created Successfully!" : "Diagnosis Creation Failed!";
         ?>  
         <main>
             <h1><?php echo $message; ?></h1>

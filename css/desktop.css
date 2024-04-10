@@ -284,6 +284,7 @@ tr:nth-child(even){
     background-position: 500%;
   }
 }
+/* Reference - https://frontendresource.com/css-text-animations/ */
 .top-button {
   display: none;
   position: fixed;
@@ -301,7 +302,7 @@ tr:nth-child(even){
   height:8%;
   width:8%;
 }
-
 .top-button:hover {
   opacity:0.8;
 }
+/* Reference - https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */

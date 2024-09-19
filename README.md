@@ -7,8 +7,8 @@ This project is a web-based hospital management system that allows hospital staf
 -Lab Technician: Can manage lab test results in patient’s lab test record.  
 -Pharmacist: Can add the date collected in a prescription record, & edit medicine supply records. 
 
-**Technology used:**
+**Technology used:**  
 -HTML, JavaScript, PHP
 
-**Database:** 
+**Database:**  
 -MySQL

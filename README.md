@@ -1,4 +1,4 @@
-# Hospital Management System
+# Hospital Management System (Completed April 2024)
 
 This project, developed as part of a 1st Year university assignment, is a web-based hospital management system that allows hospital staff to manage patients, staff, and medicine supplies efficiently. There are four types of users:
 

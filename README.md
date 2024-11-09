@@ -12,3 +12,6 @@ This project, developed as part of a 1st Year university assignment, is a web-ba
 
 ## **Database:**  
 - MySQL
+
+## **To Be Added:**
+- Code comments

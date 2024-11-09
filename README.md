@@ -14,9 +14,11 @@ This project, developed as part of a 1st Year university assignment, is a web-ba
 - MySQL
 
 ## Possible Improvements
-- Code comments
-- Confirmation pages after completing an action
-- Different dashboards for different users
+- Adding code comments
+- Implementing confirmation pages after completing an action
+- Creating user-specific dashboards
+- Automatic creation of IDs when creating records
+- Using names rather than IDs when referring to records from different tables
 
 ## How To Run
 1. Clone the repository (e.g., in Visual Studio Code)

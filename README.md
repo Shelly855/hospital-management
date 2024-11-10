@@ -24,7 +24,7 @@ This project, developed as part of a 1st Year university assignment, is a web-ba
 ## How To Run
 1. Clone the repository (e.g., in Visual Studio Code) and save it in the **htdocs** directory inside your **XAMPP** folder
 2. Open **XAMPP** and start both the **Apache** and **MySQL** servers
-3. Open a browser and go to: localhost/hospital-management/hospital-management/login/login.php
+3. Open a browser and go to: localhost/hospital-management/login/login.php
 
 ### Admin Login
 - Username: KJohnson1535

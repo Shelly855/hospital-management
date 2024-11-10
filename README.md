@@ -27,17 +27,17 @@ This project, developed as part of a 1st Year university assignment, is a web-ba
 3. Open a browser and go to: localhost/hospital-management/login/login.php
 
 ### Admin Login
-- Username: KJohnson1535
-- Password: Dn27cP10#
+- Username: **KJohnson1535**
+- Password: **Dn27cP10#**
 
 ### Doctor Login
-- Username: NHart3525
-- Password: nd$84BP4
+- Username: **NHart3525**
+- Password: **nd$84BP4**
 
 ### Lab Technician Login
-- Username: TBlack8790
-- Password: fi7g89YE&
+- Username: **TBlack8790**
+- Password: **fi7g89YE&**
 
 ### Pharmacist Login
-- Username: EPowell9297
-- Password: Ko56S£rt9
+- Username: **EPowell9297**
+- Password: **Ko56S£rt9**

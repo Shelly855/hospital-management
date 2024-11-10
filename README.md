@@ -22,8 +22,8 @@ This project, developed as part of a 1st Year university assignment, is a web-ba
 - Using names rather than IDs when referring to records from different tables
 
 ## How To Run
-1. Clone the repository (e.g., in Visual Studio Code)
-2. Start XAMPP
+1. Clone the repository (e.g., in Visual Studio Code) and save it in the **htdocs** directory inside your **XAMPP** folder
+2. Open **XAMPP** and start both the **Apache** and **MySQL** servers
 3. Open a browser and go to: localhost/hospital-management/hospital-management/login/login.php
 
 ### Admin Login

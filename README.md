@@ -1,7 +1,7 @@
 # Hospital Management System
 **Project Duration:** Jan 26th - Apr 10th 2024
 
-This project, developed as part of a 1st Year university assignment, is a web-based hospital management system that allows hospital staff to manage patients, staff, and medicine supplies efficiently. There are four types of users:
+This project, developed as part of a 1st-year university assignment, is a web-based hospital management system that allows hospital staff to manage patients, staff, and medicine supplies efficiently. There are four types of users:
 
 - **Receptionist/Admin**: Manage patient profiles & staff records.  
 - **Doctor**: View patient’s basic details & lab test results, edit patient diagnosis details, add issued prescriptions, & add requested lab tests.  

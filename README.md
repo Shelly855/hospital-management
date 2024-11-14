@@ -28,7 +28,7 @@ This project, developed as part of a 1st-year university assignment, is a web-ba
 4. For each .sql file (e.g., diagnosis_database.sql, lab_database.sql, etc.):
 5. Create a new database with a name that corresponds to the file (e.g., diagnosis_database, lab_database)
 6. Select the database, go to the **Import** tab, and upload the corresponding .sql file to import its tables and data
-7. Open a browser and go to: **localhost/hospital-management/login/login.php**
+7. When done, open a browser and go to: **localhost/hospital-management/login/login.php**
 
 ### Admin Login
 - Username: **KJohnson1535**

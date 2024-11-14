@@ -26,8 +26,8 @@ This project, developed as part of a 1st-year university assignment, is a web-ba
 2. Open **XAMPP** and start both the **Apache** and **MySQL** servers
 3. Open **phpMyAdmin** by going to **localhost/phpmyadmin** in your browser
 4. For each .sql file (e.g., diagnosis_database.sql, lab_database.sql, etc.):
-   4.1. Create a new database with a name that corresponds to the file (e.g., diagnosis_database, lab_database)
-   4.2. Select the database, go to the **Import** tab, and upload the corresponding .sql file to import its tables and data
+4.1. Create a new database with a name that corresponds to the file (e.g., diagnosis_database, lab_database)
+4.2. Select the database, go to the **Import** tab, and upload the corresponding .sql file to import its tables and data
 5. Open a browser and go to: **localhost/hospital-management/login/login.php**
 
 ### Admin Login

@@ -30,6 +30,7 @@ This project, developed as part of a 1st-year university assignment, is a web-ba
 6. Select the database, go to the **Import** tab, and upload the corresponding .sql file to import its tables and data
 7. When done, open a browser and go to: **localhost/hospital-management/login/login.php**
 
+## Dummy Login Details
 ### Admin Login
 - Username: **KJohnson1535**
 - Password: **Dn27cP10#**
